@@ -1,5 +1,4 @@
 {% extends "mknp/base.html" %}
-{% load staticfiles %}
 
 {% block title %}日本名校{% endblock %}
 {% block body %}
@@ -21,7 +20,7 @@
                                             <span class="icon-bar"></span>
                                         </button>
                                         <a class="navbar-brand" href="#home">
-                                            <img height="50" width="100" src='{% static "images/logo.png" %}'/>
+                                            <img height="50" width="100" src='{{ STATIC_URL }}images/logo.png'/>
                                         </a>
                                     </div>
 
