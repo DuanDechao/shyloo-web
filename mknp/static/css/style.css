@@ -1331,7 +1331,7 @@ li .single_team_text p{
     background: #e74e3e;
     padding: 70px 30px 70px 50px;
     position: relative;
-	height: 417px;
+	height: 300px;
 	
 }
 .main_blog_content .single_blog_area .single_blog_text.s_b_left:after{
@@ -1362,7 +1362,7 @@ li .single_team_text p{
 }
 .main_blog_content .single_blog_area .single_blog_img{
     width:100%;
-    height: 417px;
+    height: 300px;
     display: inline-block;
 }
 .main_blog_content .single_blog_area .single_blog_img img{

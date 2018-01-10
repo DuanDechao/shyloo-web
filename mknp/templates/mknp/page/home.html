@@ -1,5 +1,6 @@
 {% extends "mknp/base.html" %}
 {% load staticfiles %}
+
 {% block title %}日本名校{% endblock %}
 {% block body %}
     <div class='preloader'><div class='loaded'>&nbsp;</div></div>
@@ -31,15 +32,13 @@
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                         <ul class="nav navbar-nav navbar-right">
-                                            <li><a href="#home">首页</a></li>
-                                            <li><a href="#history">关于我们</a></li>
-    										<li><a href="#team">师资力量</a></li>
-                                            <li><a href="#clogo">院校介绍</a></li>
-                                            <li><a href="#service">日本见闻</a></li>
-                                            <li><a href="#study">详细案例</a></li>
-                                            <li><a href="#blog">学生心声</a></li>
-    										<li><a href="#portfolio">日语角</a></li>
-    										<li><a href="#contact">联系我们</a></li>
+                                            <li><a href="#home">{{ Pages1Info.tag }}</a></li>
+                                            <li><a href="#portfolio">{{ Pages1Info.tag }}</a></li>
+    										<li><a href="#team">{{ Pages1Info.tag }}</a></li>
+                                            <li><a href="#clogo">{{ Pages1Info.tag }}</a></li>
+                                            <li><a href="#service">{{ Pages1Info.tag }}</a></li>
+                                            <li><a href="#study">{{ Pages1Info.tag }}</a></li>
+                                            <li><a href="#blog">{{ Pages1Info.tag }}</a></li>
                                         </ul>
 
 
@@ -55,11 +54,8 @@
             </div>
         </header> <!--End of header -->
 
-
-
-
         <!--home Section -->
-        <section id="home" class="home">
+        <section id="home" style="background: url(../../media/{{ Pages1Info.image }}) no-repeat center center;">
             <div class="overlay">
                 <div class="home_skew_border">
                     <div class="container">
@@ -69,39 +65,9 @@
                                     <div class="single_home_slider">
                                         <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                             <!--<h3>Our Clients Are Our First Priority</h3>-->
-                                            <h1>日本 未来</h1>
+                                            <h1>{{ Pages1Info.title }}</h1>
                                             <div class="separator"></div>
-                                            <p>日本留学高端领先品牌</p>
-                                            <div class="home_btn">
-                                                <a href="" class="btn btn-lg m_t_10">现在开始</a>
-                                                <a href="" class="btn btn-default">更多</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single_home_slider">
-                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                            
-                                            <h1>日本 未来</h1>
-                                            <div class="separator"></div>
-                                            <p>日本留学高端领先品牌</p>
-                                            <div class="home_btn">
-                                                <a href="" class="btn btn-lg m_t_10">现在开始</a>
-                                                <a href="" class="btn btn-default">更多</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="single_home_slider">
-                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                        
-                                            <h1>日本 未来</h1>
-                                            <div class="separator"></div>
-                                            <p>日本留学高端领先品牌</p>
-                                            <div class="home_btn">
-                                                <a href="" class="btn btn-lg m_t_10">现在开始</a>
-                                                <a href="" class="btn btn-default">更多</a>
-                                            </div>
-
+                                            <p>{{ Pages1Info.label }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,87 +87,70 @@
             <div class="container">
                 <div class="row">
                     <div class="main_feature text-center">
-
+                        {% for homePage in homePages %}
                         <div class="col-sm-3">
                             <div class="single_feature">
                                 <div class="single_feature_icon">
-                                    <i class="fa fa-clone"></i>
+                                    <i class="fa {{ homePage.icon }}"></i>
                                 </div>
 
-                                <h4>双录取</h4>
+                                <h4>{{ homePage.title }}</h4>
                                 <div class="separator3"></div>
-                                <p>留学的双保险</p>
+                                <p>{{ homePage.desc }}</p>
                             </div>
                         </div>
-
-                        <div class="col-sm-3">
-                            <div class="single_feature">
-                                <div class="single_feature_icon">
-                                    <i class="fa fa-heart-o"></i>
-                                </div>
-
-                                <h4>外教口语训练</h4>
-                                <div class="separator3"></div>
-                                <p>研究计划指导</p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="single_feature">
-                                <div class="single_feature_icon">
-                                    <i class="fa fa-lightbulb-o"></i>
-                                </div>
-                                <h4>分项服务</h4>
-                                <div class="separator3"></div>
-                                <p>研究计划指导</p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="single_feature">
-                                <div class="single_feature_icon">
-                                    <i class="fa fa-comments-o"></i>
-                                </div>
-
-                                <h4>特色服务</h4>
-                                <div class="separator3"></div>
-                                <p>研究计划指导</p>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
             </div><!--End of container -->
         </section><!--End of feature Section -->
         <hr />
 
-
-        <!-- History section -->
-        <section id="history" class="history sections">
-            <div class="container">
+    	<section id="portfolio" class="portfolio sections">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="main_history">
-                        <div class="col-sm-6">
-                            <div class="single_history_img">
-                                <img src='{% static "images/stab1.png" %}' alt="" />
+                    <div class="main_portfolio">
+                        <div class="col-sm-12">
+                            <div class="head_title text-center">
+                                <h2>{{ Pages2Info.title }}</h2>
+                                <div class="subtitle">
+                                    {{ Pages2Info.label }}
+                                </div>
+                                <div class="separator"></div>
                             </div>
+                        </div>
+                        <div class="work_menu text-center">
+                            <div id="filters" class="toolbar mb2 mt2">
+                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>
+                                {% for key,value in activityPageTypes.items %}
+                                /<button class="btn-md fil-cat filter" data-rel="{{ key }}" data-filter=".{{ key }}">{{ value }}</button>
+                                {% endfor %}
+                            </div> 
+
                         </div>
 
-                        <div class="col-sm-6">
-                            <div class="single_history_content">
-                                <div class="head_title">
-                                    <h2>关于我们</h2>
-                                </div>
-                                <p>湖北中外通出国留学咨询有限公司，暨武汉市教育局国际交流合作中心日本留学部，机构于2003年由武汉市教育局主办，是局唯一直属的权威合法留学服务单位，也是经国家教育部、公安部、国家工商总局最早一批联合批准设立的留学机构，是湖北省对外交流示范窗口、出国留学知名品牌，连续多年被湖北省权威媒体评为“最诚信、最负责”留学服务机构，自成立以来先后与日本的教育行政部门、大学院校和教育集团建立了长期稳定的合作关系。</p>
-                                <a href="" class="btn btn-lg">了解更多</a>
+                        <div style="clear:both;"></div>     
+                        <div id="portfoliowork">
+                            {% for activityPage in activityPages %}
+                            <div class="single_portfolio tile scale-anm {{ activityPage.label }}">
+                                <img src="{{ MEDIA_URL }}{{ activityPage.image }}" alt="" />
+                                <a href="{{ MEDIA_URL }}{{ activityPage.image }}" class="portfolio-img">
+                                    <div class="grid_item_overlay">
+                                        <div class="separator4"></div>
+                                        <h3>{{ activityPage.title }}</h3>
+                                        <p>{{ activityPage.desc }}</p>
+                                    </div>
+                                </a>
                             </div>
+                            {% endfor %}
                         </div>
+
+                        <div style="clear:both;"></div>  
                     </div>
-                </div><!--End of row -->
-            </div><!--End of container -->
-        </section><!--End of history -->
-       
-    	
+                </div>
+            </div><!-- End off container --> 
+        </section> <!-- End off Work Section -->
+		
     	 <!-- Team Section -->
         <section id="team" class="team">
             <div class="main_team_area">
@@ -209,60 +158,29 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="head_title textwhite text-center margin-top-80">
-                                <h2>师资力量</h2>
+                                <h2>{{ Pages3Info.title }}</h2>
                                 <div class="subtitle">
-                                    一群大神的存在
+                                    {{ Pages3Info.label }}
                                 </div>
                                 <div class="separator"></div>
                             </div><!-- End off Head_title -->
 
                             <div class="main_team">
                                 <ul>
+                                    {% for teamPage in teamPages %}
                                     <li>
                                         <div class="single_team_img">
-                                            <img src='{% static "images/team1.jpg" %}' alt="" />
+                                            <img src='{{ MEDIA_URL }}{{ teamPage.photo }}' alt="" />
                                         </div>
                                         <div class="single_team_text">
-                                            <h4>肖老师</h4>
-                                            <p>风趣 幽默</p>
+                                            <h4>{{ teamPage.name }}</h4>
+                                            <p>{{ teamPage.label1 }}<br>
+                                            {{ teamPage.label2 }}<br>
+                                            {{ teamPage.label3 }}<br>
+                                            {{ teamPage.label4 }}</p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="single_team_img">
-                                            <img src='{% static "images/team2.jpg" %}' alt="" />
-                                        </div>
-                                        <div class="single_team_text">
-                                            <h4>肖老师</h4>
-                                            <p>风趣 幽默</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="single_team_img">
-                                            <img src='{% static "images/team3.jpg" %}' alt="" />
-                                        </div>
-                                        <div class="single_team_text">
-                                            <h4>肖老师</h4>
-                                            <p>风趣 幽默</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="single_team_img">
-                                            <img src='{% static "images/team4.jpg" %}' alt="" />
-                                        </div>
-                                        <div class="single_team_text">
-                                            <h4>肖老师</h4>
-                                            <p>风趣 幽默</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="single_team_img">
-                                            <img src='{% static "images/test2.jpg" %}' alt="" />
-                                        </div>
-                                        <div class="single_team_text">
-                                            <h4>肖老师</h4>
-                                            <p>风趣 幽默</p>
-                                        </div>
-                                    </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
 
@@ -278,43 +196,75 @@
                 <div class="row">
                     <div class="main_clogo sections text-center">
                         <div class="head_title text-center">
-                            <h2>院校介绍</h2>
+                            <h2>{{ Pages4Info.title }}</h2>
                             <div class="subtitle">
-                                你们梦想的地方
+                                {{ Pages4Info.label }}
                             </div>
                             <div class="separator"></div>
                         </div><!-- End off Head_title -->
 
+                        {% for casePage in casePages %}
                         <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo1.png" %}' alt="" /></a>
+                            <a href=""><img height="100" width="200" src='{{ MEDIA_URL }}{{ casePage.image }}' alt="" /></a>
                         </div>
-                        <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo2.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo3.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo4.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo5.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo6.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo7.png" %}' alt="" /></a>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <a href=""><img height="100" width="200" src='{% static "images/clogo8.png" %}' alt="" /></a>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="divider"></div>
         </section><!-- End off clogo Section -->
 
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_blog sections">
+                        <div class="head_title text-center">
+                            <h2>{{ Pages5Info.title }}</h2>
+                            <div class="subtitle">
+                                {{ Pages5Info.label }}
+                            </div>
+                            <div class="separator"></div>
+                        </div><!-- End off Head_title -->
+                        <div class="main_blog_content">
+                            {% for projectPage in projectPages %}
+                            <div class="col-sm-3">
+                                <div class="single_blog_area textwhite">
+                                    <div class="row">
+                                        {% if projectPage.pos == 'left' %}
+                                        <div class="col-sm-5 no-padding">
+                                        {% else %}
+                                        <div class="col-sm-5 col-sm-push-5 no-padding">
+                                        {% endif %}
+                                            <div class="single_blog_img">
+                                                <img src='{{ MEDIA_URL }}{{ projectPage.image }}' alt="" />
+                                            </div>
+                                        </div>
+                                        {% if projectPage.pos == 'left' %}
+                                        <div class="col-sm-5 no-padding">
+                                        {% else %}
+                                        <div class="col-sm-5 col-sm-pull-5 no-padding">
+                                        {% endif %}
+                                            <div class="single_blog_text s_b_{{ projectPage.pos }}">
+                                                <h3>{{ projectPage.label }}</h3>
+                                                <p>{{ projectPage.title }}</p>
+                                                <div class="separator2"></div>
+                                                <p>{{ projectPage.desc }}</p>
+                                                <!--<a href="" class="read_more">Read More >></a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- End off container -->
+        </section><!-- End off Blog Section -->
+        <hr />
 
         <!-- service Section -->
         <section id="service" class="service">
@@ -325,61 +275,29 @@
 
                             <div class="single_service single_service_text text-right">
                                 <div class="head_title">
-                                    <h2>日本见闻</h2>
+                                    <h2>{{ Pages6Info.title }}</h2>
                                 </div>
 
-                                <div class="row">
+                                <div class="row" style="height:494px">
+
+                                    {% for newsPage in newsPages %}
                                     <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
                                         <div class="row">
 
                                             <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
                                                 <article class="single_service_right_text">
-                                                    <h4>教育类</h4>
-                                                    <p>北海道大学（Hokkaido University），简称北大，是一所本部位于日本北海道札幌市的著名研究型国立综合大学，是代表日本最高学术水平的顶尖国立大学“旧帝一工神”之一。</p>
+                                                    <h4>{{ newsPage.title }}</h4>
+                                                    <p>{{ newsPage.label }}</p>
                                                 </article>
                                             </div>
                                             <div class="col-sm-1 col-xs-1">
                                                 <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
+                                                    <i class="fa {{ newsPage.icon }}"></i>
                                                 </figure><!-- End of figure -->
                                             </div>
                                         </div>
                                     </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>生活类</h4>
-                                                    <p>北海道大学（Hokkaido University），简称北大，是一所本部位于日本北海道札幌市的著名研究型国立综合大学，是代表日本最高学术水平的顶尖国立大学“旧帝一工神”之一。</p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1 margin-bottom-20">
-                                                <article class="single_service_right_text">
-                                                    <h4>人文类</h4>
-                                                    <p>北海道大学（Hokkaido University），简称北大，是一所本部位于日本北海道札幌市的著名研究型国立综合大学，是代表日本最高学术水平的顶尖国立大学“旧帝一工神”之一。</p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div><!-- End of col-sm-6 -->
@@ -387,7 +305,7 @@
                         <div class="col-md-6 col-sm-12 no-padding">
                             <figure class="single_service single_service_img">
                                 <div class="overlay-img"></div>
-                                <img src='{% static "images/servicerightimg.jpg" %}' alt="" />
+                                <img src='{{ MEDIA_URL }}{{ Pages6Info.image }}' alt="" />
                             </figure><!-- End of figure -->
                         </div><!-- End of col-sm-6 -->
 
@@ -396,560 +314,6 @@
             </div><!-- End of Container-fluid -->
         </section><!-- End of service Section -->
 
-
-        <!-- Study Section --> 
-        <section id="study" class="study text-center wow fadeIn"  data-wow-duration="2s" data-wow-dealy="1.5s">
-            <div class="container">
-                <div class="row">
-                    <div class="main_study_area sections">
-                        <div class="head_title text-center">
-                            <h2>详细案例</h2>
-                            <div class="subtitle">
-                                学长学姐带你飞
-                            </div>
-                            <div class="separator"></div>
-                        </div>
-                        <div class="single_study_content">
-                            <div class="col-sm-6">
-                                <div class="single_study_slid_area">
-
-                                    <div class="single_study_text">
-                                        <div class="study_slider"> 
-                                            <div class="item">
-                                                <div class="s_study_icon">
-                                                    <i class="fa fa-lightbulb-o"></i>  
-                                                </div>
-                                                <h4>修士</h4>
-                                                <div class="separator3"></div>
-                                                <p>学生:程浩</p>
-    											<p>老师:刘老师</p>
-    											<p>身份:在读生</p>
-
-                                                <a href="" class="btn btn-lg">read more</a>
-                                            </div>
-                                            <div class="item">
-                                                <div class="s_study_icon">
-                                                    <i class="fa fa-lightbulb-o"></i>  
-                                                </div>
-                                                <h4>修士</h4>
-                                                <div class="separator3"></div>
-                                                <p>学生:程浩</p>
-    											<p>老师:刘老师</p>
-    											<p>身份:在读生</p>
-
-                                                <a href="" class="btn btn-lg">read more</a>
-                                            </div>
-                                            <div class="item">
-                                                <div class="s_study_icon">
-                                                    <i class="fa fa-lightbulb-o"></i>  
-                                                </div>
-                                                <h4>修士</h4>
-                                                <div class="separator3"></div>
-                                                <p>学生:程浩</p>
-    											<p>老师:刘老师</p>
-    											<p>身份:在读生</p>
-
-                                                <a href="" class="btn btn-lg">read more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="single_study_right_img">
-                                <div class="col-sm-6">
-                                    <div class="single_study_img">
-                                        <img src='{% static "images/study.jpg" %}' alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End off row --> 
-            </div><!-- End off Container --> 
-        </section><!-- End off Study Section --> 
-
-
-        <!-- <section id="counter" class="counter">
-            <div class="video_overlay">
-                <div class="container">
-                    <div class="row">  
-                        <div class="col-sm-12">               
-                            <div class="main_counter_area text-center">
-
-                                <div class="row">
-                                    <div class="single_counter border_right">
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_counter_item">
-                                                <i class="icon icon-thumbs-up"></i>
-                                                <h2 class="statistic-counter">3891</h2>
-                                                <h4 class="">User Favourites</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="single_counter">
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_counter_item">
-                                                <i class="icon icon-business-3"></i>
-                                                <h2 class="statistic-counter">281</h2>
-                                                <h4 class="">Posts Last 24 Hours</h4>  
-                                            </div>
-                                        </div>
-                                    </div> 
-
-                                    <div class="single_counter">
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_counter_item">
-                                                <i class="icon icon-people-32"></i>
-                                                <h2 class="statistic-counter">618</h2>
-                                                <h4 class="">Total Posts</h4>  
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="single_counter">
-                                        <div class="col-sm-3 col-xs-12">
-                                            <div class="single_counter_item">
-                                                <i class="icon icon-cup"></i>
-                                                <h2 class="statistic-counter">178</h2>
-                                                <h4 class="">Amazing Features</h4>
-
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Pricing Section -->
-        <!--<section id="pricing" class="pricing">
-            <div class="container">
-                <div class="row">
-                    <div class="main_pricing_area sections">
-                        <div class="head_title text-center">
-                            <h2>OUR PRICING</h2>
-                            <div class="subtitle">
-                                A 30 days free trial for all. A brief story about how this process works, keep an eye till the end.
-                            </div>
-                            <div class="separator"></div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="single_pricing">
-                                <div class="pricing_head">
-                                    <h3>STARTER</h3>
-                                    <div class="pricing_price">
-                                        <div class="p_r text-center">$19</div>
-                                        <div class="m_t text-center">per month</div>
-                                    </div>
-                                </div>
-
-                                <div class="pricing_body">
-                                    <ul>
-                                        <li>Competition Analysis Methods</li>
-                                        <li>All Ranked URLs</li>
-                                        <li>International Support System</li>
-                                        <li>Social Media Tracking</li>
-                                    </ul>
-                                    <a href="https://bootstrapthemes.co" class="btn btn-md">CHOOSE PLAN</a>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="single_pricing pricing_business">
-                                <div class="pricing_head ">
-                                    <h3>PREMIUM</h3>
-                                    <div class="pricing_price">
-                                        <div class="p_r text-center">$39</div>
-                                        <div class="m_t text-center">per month</div>
-                                    </div>
-                                </div>
-
-                                <div class="pricing_body">
-                                    <ul>
-                                        <li>Competition Analysis Methods</li>
-                                        <li>All Ranked URLs</li>
-                                        <li>International Support System</li>
-                                        <li>Social Media Tracking</li>
-                                    </ul>
-                                    <a href="https://bootstrapthemes.co" class="btn btn-md">CHOOSE PLAN</a>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="single_pricing">
-                                <div class="pricing_head">
-                                    <h3>BUSINESS</h3>
-                                    <div class="pricing_price">
-                                        <div class="p_r text-center">$99</div>
-                                        <div class="m_t text-center">per month</div>
-                                    </div>
-                                </div>
-
-                                <div class="pricing_body">
-                                    <ul>
-                                        <li>Competition Analysis Methods</li>
-                                        <li>All Ranked URLs</li>
-                                        <li>International Support System</li>
-                                        <li>Social Media Tracking</li>
-                                    </ul>
-                                    <a href="https://bootstrapthemes.co" class="btn btn-md">CHOOSE PLAN</a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-       
-
-      
-
-
-        <!-- Blog Section -->
-        <section id="blog" class="blog">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="main_blog sections">
-                        <div class="head_title text-center">
-                            <h2>学生心声</h2>
-                            <div class="subtitle">
-                                快听听他们怎么说 
-                            </div>
-                            <div class="separator"></div>
-                        </div><!-- End off Head_title -->
-
-                        <div class="main_blog_content">
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_img">
-                                                <img src='{% static "images/blog1.jpg" %}' alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_text s_b_left">
-                                                <p>刘欣畅</p>
-                                                <h3>日本造型大学</h3>
-                                                <div class="separator2"></div>
-                                                <p>我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，认真负责的老师会根据学生的情况选择适合的院校与专业，让我们这些对留学一无所知的学子们匹配的最满意的学校！</p>
-
-                                                <!--<a href="" class="read_more">Read More >></a> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_img">
-                                                <img src='{% static "images/blog2.jpg" %}' alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_text s_b_left">
-                                                 <p>刘欣畅</p>
-                                                <h3>日本造型大学</h3>
-                                                <div class="separator2"></div>
-                                                <p>我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，认真负责的老师会根据学生的情况选择适合的院校与专业，让我们这些对留学一无所知的学子们匹配的最满意的学校！</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-
-                                        <div class="col-sm-6 col-sm-push-6 no-padding">
-                                            <div class="single_blog_img">
-                                                <img src='{% static "images/blog3.jpg" %}' alt="" />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-sm-pull-6 no-padding">
-                                            <div class="single_blog_text s_b_right">
-                                                 <p>刘欣畅</p>
-                                                <h3>日本造型大学</h3>
-                                                <div class="separator2"></div>
-                                                <p>我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，认真负责的老师会根据学生的情况选择适合的院校与专业，让我们这些对留学一无所知的学子们匹配的最满意的学校！我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-push-6 no-padding">
-                                            <div class="single_blog_img">
-                                                <img src='{% static "images/blog4.jpg" %}' alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-sm-pull-6 no-padding">
-                                            <div class="single_blog_text s_b_right">
-                                                 <h4>刘欣畅</h4>
-                                                <h3>日本造型大学</h3>
-                                                <div class="separator2"></div>
-                                                <p>我才得以坚持下来，并顺利考取到了理想的大学，留学申请找对老师真的非常关键，认真负责的老师会根据学生的情况选择适合的院校与专业，让我们这些对留学一无所知的学子们匹配的最满意的学校！</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div><!-- End off container -->
-        </section><!-- End off Blog Section -->
-    	
-    	<section id="portfolio" class="portfolio sections">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="main_portfolio">
-                        <div class="col-sm-12">
-                            <div class="head_title text-center">
-                                <h2>日语角</h2>
-                                <div class="subtitle">
-                                    一起玩耍吧
-                                </div>
-                                <div class="separator"></div>
-                            </div>
-                        </div>
-                        <div class="work_menu text-center">
-                            <div id="filters" class="toolbar mb2 mt2">
-                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>/
-                                <!--<button class="btn-md fil-cat filter" data-rel="web" data-filter=".web">图片</button>/
-                                <button class="btn-md fil-cat filter" data-rel="design" data-filter=".design">视频</button>/
-                                <button class="btn-md fil-cat filter" data-rel="flyers" data-filter=".flyers">ANIMATION</button>/
-                                <button class="btn-md fil-cat filter" data-rel="bcards" data-filter=".bcards">ART</button>/ -->
-                                <button class="btn-md fil-cat filter" data-rel="photo" data-filter=".photo">图片</button>/
-                                <button class="btn-md fil-cat filter" data-rel="video" data-filter=".video">视频</button>
-                            </div> 
-
-                        </div>
-
-                        <div style="clear:both;"></div>     
-                        <div id="portfoliowork"> 
-                            <div class="single_portfolio tile scale-anm web grid-item-width2 video" >
-                                <img src='{% static "images/pf1.jpg" %}' alt="" />
-                                <a href='{% static "images/pf1.jpg" %}'  class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm bcards photo" >
-                                <img src='{% static "images/pf2.jpg" %}' alt="" />
-                                <a href='{% static "images/pf2.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm web video">
-                                <img src='{% static "images/pf3.jpg" %}' alt="" />
-                                <a href='{% static "images/pf3.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm web photo" >
-                                <img src='{% static "images/pf4.jpg" %}' alt="" />
-                                <a href='{% static "images/pf4.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm bcards design" >
-                                <img src='{% static "images/pf5.jpg" %}' alt="" />  
-                                <a href='{% static "images/pf5.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="single_portfolio tile scale-anm flyers video design">
-                                <img src='{% static "images/pf6.jpg" %}' alt="" />
-                                <a href='{% static "images/pf6.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm photo flyers">
-                                <img src='{% static "images/pf7.jpg" %}' alt="" />
-                                <a href='{% static "images/pf7.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="single_portfolio tile scale-anm bcards video" >
-                                <img src='{% static "images/pf8.jpg" %}' alt="" />
-                                <a href='{% static "images/pf8.jpg" %}' class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div style="clear:both;"></div>  
-                    </div>
-                </div>
-            </div><!-- End off container --> 
-        </section> <!-- End off Work Section -->
-
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="contact_contant sections">
-                            <div class="head_title text-center">
-                                <h2>联系我们</h2>
-                                <div class="subtitle">
-                                    我们会为您提供优质的服务 
-                                </div>
-                                <div class="separator"></div>
-                            </div><!-- End off Head_title -->
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="main_contact_info">
-                                        <div class="row">
-                                            <div class="contact_info_content padding-top-90 padding-bottom-60 p_l_r">
-                                                <div class="col-sm-12">
-                                                    <div class="single_contact_info">
-                                                        <div class="single_info_text">
-                                                            <h3>公司地址</h3>
-                                                            <h4>湖北省武汉市洪山区鲁磨路388号</h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="single_contact_info">
-                                                        <div class="single_info_text">
-                                                            <h3>咨询电话</h3>
-                                                            <h4>18321371759</h4>
-                                                            <h4>0216809142</h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="single_contact_info">
-                                                        <div class="single_info_text">
-                                                            <h3>电子邮箱</h3>
-                                                            <h4>shoutsky@163.com</h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6">
-                                    <div class="single_contant_left padding-top-90 padding-bottom-90">
-                                        <form action="#" id="formid">
-                                            <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" name="name" placeholder="姓名" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group">
-                                                            <input type="email" class="form-control" name="email" placeholder="邮箱" required="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" name="phone" placeholder="电话" required="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="message" rows="7" placeholder="留言"></textarea>
-                                                </div>
-
-                                                <div class="">
-                                                    <input type="submit" value="提交" class="btn btn-lg">
-                                                </div>
-                                            </div> 
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End of contact section -->
-
-        <section id="trial" class="trial text-center wow fadeIn"  data-wow-duration="2s" data-wow-dealy="1.5s">
-            <div class="main_trial_area">
-                <div class="video_overlay sections">
-                    <div class="container">
-                        <div class="row">
-                            <div class="main_trial">
-                                <div class="col-sm-12">
-                                    <h2>让我们开启日本留学之旅！ <span>日本名校</span></h2>
-                                    <h4>30天免费体验，无效退款</h4>
-                                    <a href="" class="btn btn-lg">留学之旅</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End of Trial section -->
+        
 
 {% endblock %}
