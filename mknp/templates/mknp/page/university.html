@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+{% extends "mknp/base.html" %}
+
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<link href="{{ STATIC_URL }}css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<!--  jquery plguin -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<!-- start gallery -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.easing.min.js"></script>	
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.mixitup.min1.js"></script>
+<script type="text/javascript">
+$(function () {
+	
+	var filterList = {
+	
+		init: function () {
+		
+			// MixItUp plugin
+			// http://mixitup.io
+			$('#portfoliolist').mixitup({
+				targetSelector: '.portfolio',
+				filterSelector: '.filter',
+				effects: ['fade'],
+				easing: 'snap',
+				// call the hover effect
+				onMixEnd: filterList.hoverEffect()
+			});				
+		
+		},
+		
+		hoverEffect: function () {
+		
+			// Simple parallax effect
+			$('#portfoliolist .portfolio').hover(
+				function () {
+					$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+					$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+				},
+				function () {
+					$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+					$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+				}		
+			);				
+		
+		}
+
+	};
+	
+	// Run the show!
+	filterList.init();
+		
+});	
+</script>
+<!-- Add fancyBox main JS and CSS files -->
+<link href="{{ STATIC_URL }}css/magnific-popup1.css" rel="stylesheet" type="text/css">
+<script src="{{ STATIC_URL }}js/jquery.magnific-popup1.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
+		$('.popup-with-zoom-anim').magnificPopup({
+			type: 'inline',
+			fixedContentPos: false,
+			fixedBgPos: true,
+			overflowY: 'auto',
+			closeBtnInside: true,
+			preloader: false,
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in'
+	});
+});
+</script>
+{% endblock %}
+
+{% block body %}
+<body>
+<!-- start header -->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header_btm">
+		<div class="h_left">
+			<h2>Welcome Ladies & Gents to Calm Website.</h2>
+			<h3>A theme more stylish than any other on themeforest</h3>
+		</div>
+		<div class="soc_icons">
+			<h2>find us online </h2>
+				<ul>
+					<li><a class="icon1" href="#"></a></li>
+					<li><a class="icon2" href="#"></a></li>
+					<li><a class="icon3" href="#"></a></li>
+					<li><a class="icon4" href="#"></a></li>
+					<li><a class="icon5" href="#"></a></li>
+					<div class="clear"></div>
+				</ul>	
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+<div class="main_bg">
+<div class="wrap">
+	<div class="main">
+		<!-- start popup -->
+		<div id="small-dialog" class="mfp-hide">
+			<div class="pop_up">
+			 	<h2>Lorem Ipsum is simply dummy text of the printing and industry</h2>
+			 	<img src="images/zoom.jpg" title="image-name">
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
+				<a class="btn" href="details.html">Read more</a>
+			</div>
+		</div>
+		<!-- end popup -->
+		<!-- start gallery  -->
+			<div class="container">
+					<ul id="filters" class="clearfix">
+						<li><span class="filter active" data-filter="app card icon logo web">All</span></li> /
+						<li><span class="filter" data-filter="app card logo">design</span></li> /
+						<li><span class="filter" data-filter="card app web icon">branding</span></li> /
+						<li><span class="filter" data-filter="icon web app">graphic</span></li> /
+						<li><span class="filter" data-filter="logo app">animation</span></li> /
+						<li><span class="filter" data-filter="web app card logo icon">illustration</span></li> /
+						<li><span class="filter" data-filter="web app logo card">photography</span></li>
+					</ul>
+		<div id="portfoliolist">
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio logo1" data-cat="logo">
+					<div class="portfolio-wrapper">				
+							<img src="{{ MEDIA_URL }}images/pic1.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Bird Document</p>
+								<span class="text-category">Logo</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic2.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Visual Infography</p>
+								<span class="text-category">APP</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio web" data-cat="web">
+					<div class="portfolio-wrapper">						
+							<img src="{{ MEDIA_URL }}images/pic3.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Sonor's Design</p>
+								<span class="text-category">Web design</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>				
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic4.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Typography Company</p>
+								<span class="text-category">Business card</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">	
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">
+							<img src="{{ MEDIA_URL }}images/pic5.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Weatherette</p>
+								<span class="text-category">APP</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>			
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic6.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">BMF</p>
+								<span class="text-category">Business card</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio card" data-cat="card">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic7.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Techlion</p>
+								<span class="text-category">Business card</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio logo1" data-cat="logo">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic8.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">KittyPic</p>
+								<span class="text-category">Logo</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>																																							
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio app" data-cat="app">
+					<div class="portfolio-wrapper">			
+							<img src="{{ MEDIA_URL }}images/pic9.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Graph Plotting</p>
+								<span class="text-category">APP</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">												
+				<div class="portfolio web" data-cat="web">
+					<div class="portfolio-wrapper">						
+							<img src="{{ MEDIA_URL }}images/pic10.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Student Guide</p>
+								<span class="text-category">Web design</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>	
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">																
+				<div class="portfolio icon" data-cat="icon">
+					<div class="portfolio-wrapper">
+							<img src="{{ MEDIA_URL }}images/pic11.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">Scoccer</p>
+								<span class="text-category">Icon</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>			
+			</a>
+			<a class="popup-with-zoom-anim" href="#small-dialog">																																																													
+				<div class="portfolio icon" data-cat="icon">
+					<div class="portfolio-wrapper">						
+							<img src="{{ MEDIA_URL }}images/pic12.jpg"  alt="Image 2" />
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">3D Map</p>
+								<span class="text-category">Icon</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>		
+			</a>	
+		</div>
+	</div><!-- end container -->
+	</div>
+</div>
+</div>
+
+{% endblock %}

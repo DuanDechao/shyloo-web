@@ -1,0 +1,48 @@
+/*=================================================================
+                        footer section
+===================================================================*/
+
+.sections.footer {
+    padding-bottom: 80px;
+}
+
+.footer{
+    background: #000000;
+}
+.main_footer{
+    overflow: hidden;
+    padding: 20px 0px;
+}
+
+.main_footer .flowus a i{
+    color:#fff;
+    font-size:1rem;
+    padding: 5px;
+    border-radius: 0;
+    width:30px;
+    height:30px;
+    text-align: center;
+    line-height: 18px;
+    margin-top:10px;
+}
+.main_footer .flowus a i:hover{
+    color:#e74c3c;
+}
+
+.copyright_text{
+    text-align: right;
+}
+.copyright_text p{
+    color:#fff;
+    line-height: 25px;
+    max-width: 100%;
+    padding-top: 15px;
+}
+.copyright_text p i{
+    padding:0px 10px;
+    color:#ff0000;
+}
+.copyright_text p a{
+    padding:0px 10px;
+    color:#e74c3c;
+}

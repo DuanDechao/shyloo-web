@@ -10,35 +10,61 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <!--Google Fonts link-->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i" rel="stylesheet">
-
-
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/iconfont.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick-theme.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/font-awesome.min.css' >
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/jquery.fancybox.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/bootstrap.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/bootstrap.min.css'>
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/magnific-popup.css'>
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/plugins.css'>
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/style.css' >
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href='{{ STATIC_URL }}css/responsive.css' >
-
-        <script src='{{ STATIC_URL }}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'></script>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href='{{ STATIC_URL }}css/base.css'>
+		<link rel="stylesheet" href='{{ STATIC_URL }}css/footer.css'>
+		<link rel="stylesheet" href='{{ STATIC_URL }}css/bootstrap.css'>
+		{% block head %} {% endblock %}
     </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
+		<header id="main_menu" class="header navbar-fixed-top">            
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="nave_menu">
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="#home">
+                                            <img height="50" width="100" src='{{ STATIC_URL }}images/logo.png'/>
+                                        </a>
+                                    </div>
+
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="#home">主页</a></li>
+                                            <li><a href="#portfolio">活动</a></li>
+    										<li><a href="#team">活动</a></li>
+                                            <li><a href="#clogo">活动</a></li>
+                                            <li><a href="#blog">活动</a></li>
+                                            <li><a href="#service">活动</a></li>
+                                        </ul>
+
+
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>	
+                    </div>
+
+                </div>
+
+            </div>
+        </header> <!--End of header -->
     	{% block body %}
     	{% endblock %}
     	<!--Footer section-->
@@ -75,24 +101,6 @@
     </div>
 
     <!-- START SCROLL TO TOP  -->
-    <div class="scrollup">
-            <a href="#"><i class="fa fa-chevron-up"></i></a>
-        </div>
-
-        <script src='{{ STATIC_URL }}js/vendor/jquery-1.11.2.min.js'></script>
-        <script src='{{ STATIC_URL }}js/vendor/bootstrap.min.js'></script>
-
-        <script src='{{ STATIC_URL }}js/jquery.magnific-popup.js'></script>
-        <script src='{{ STATIC_URL }}js/jquery.mixitup.min.js'></script>
-        <script src='{{ STATIC_URL }}js/jquery.easing.1.3.js'></script>
-        <script src='{{ STATIC_URL }}js/jquery.masonry.min.js'></script>
-
-        <!--slick slide js -->
-        <script src='{{ STATIC_URL }}css/slick/slick.js'></script>
-        <script src='{{ STATIC_URL }}css/slick/slick.min.js'></script>
-
-
-        <script src='{{ STATIC_URL }}js/plugins.js'></script>
-        <script src='{{ STATIC_URL }}js/main.js'></script>  
+     
     </body>
 </html>

@@ -32,3 +32,6 @@ def home_page(request):
 	return render_to_response('mknp/page/home.html', {'homePages': homePages, 'activityPages': activityPages, 'activityPageTypes': activityPageTypes, 
 		'teamPages': teamPages, 'casePages': casePages, 'projectPages': projectPages, 'newsPages': newsPages, 'Pages1Info': Pages1Info, 'Pages2Info': Pages2Info,
 		'Pages3Info': Pages3Info, 'Pages4Info': Pages4Info, 'Pages5Info': Pages5Info, 'Pages6Info': Pages6Info}, RequestContext(request))
+		
+def university(request):
+	return render_to_response('mknp/page/university.html', {}, RequestContext(request))

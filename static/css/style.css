@@ -2,19 +2,7 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-html,
-body {
-    background-color: #fff;
-    font-size: 14px;
-    color: #797979;
-    width: 100%;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: 300;
-    width:100%;
-    font-family: 'ralewayregular';
-}
+
 .preloader {
     position: fixed;
     top: 0;
@@ -76,10 +64,7 @@ a span {
     box-sizing: border-box;
     /*    direction: rtl;*/
 }
-p {
-    margin: 0 0 15px;
 
-}
 
 .clear {
     clear: both;
@@ -194,10 +179,7 @@ h6 {
     font-size: 1rem;
     margin-bottom: .9rem;
 }*/
-p {
-    line-height: 2rem;
-    font-size: 0.875rem;
-}
+
 p:last-child {
     margin-bottom: 0px;
 }
@@ -247,9 +229,7 @@ Section
     padding-bottom: 105px;
     /*overflow: hidden;*/
 }
-.sections.footer {
-    padding-bottom: 80px;
-}
+
 section .subtitle h5 {
     margin-top: 10px;
     font-size: 1.3rem;
@@ -1426,53 +1406,6 @@ li .single_team_text p{
     font-weight: 400;
     text-transform: none;
 }
-
-
-/*=================================================================
-                        footer section
-===================================================================*/
-.footer{
-    background: #000000;
-}
-.main_footer{
-    overflow: hidden;
-    padding: 20px 0px;
-}
-
-.main_footer .flowus a i{
-    color:#fff;
-    font-size:1rem;
-    padding: 5px;
-    border-radius: 0;
-    width:30px;
-    height:30px;
-    text-align: center;
-    line-height: 18px;
-    margin-top:10px;
-}
-.main_footer .flowus a i:hover{
-    color:#e74c3c;
-}
-
-.copyright_text{
-    text-align: right;
-}
-.copyright_text p{
-    color:#fff;
-    line-height: 25px;
-    max-width: 100%;
-    padding-top: 15px;
-}
-.copyright_text p i{
-    padding:0px 10px;
-    color:#ff0000;
-}
-.copyright_text p a{
-    padding:0px 10px;
-    color:#e74c3c;
-}
-
-
 
 /* scrollup */
 
