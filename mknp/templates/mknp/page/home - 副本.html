@@ -29,74 +29,30 @@
     <div class='preloader'><div class='loaded'>&nbsp;</div></div>
     <div class="culmn">
         <!--home Section -->
-        <section id="home">
-			<h1 class="sr-only">Home</h1>
-            <div id="carousel-hero" class="carousel slide" data-ride="carousel">
-
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-			
-					<div class="item active" >
-
-						<div class="overlay"></div>
-
-						<div class="carousel-caption">
-
-							<span class="h1">We are gonex</span>
-
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
-
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-
-					<div class="item" >
-
-						<div class="overlay"></div>
-
-						<div class="carousel-caption">
-
-							<span class="h1">We are gonex</span>
-
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
-
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-
-					<div class="item" >
-
-						<div class="overlay"></div>
-
-						<div class="carousel-caption">
-
-							<span class="h1">We are gonex</span>
-
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
-
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-				
-				</div> <!-- /.carousel-inner -->
-
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-hero" role="button" data-slide="prev">
-					<span class="ico ico-arrow_left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#carousel-hero" role="button" data-slide="next">
-					<span class="ico ico-arrow_right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-
-			</div> <!-- /.carousel -->
+        <section id="home" style="background: url(../../media/{{ Pages1Info.image }}) no-repeat center center;">
+            <div class="overlay">
+                <div class="home_skew_border">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="main_home_slider text-center">
+                                    <div class="single_home_slider">
+                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                            <!--<h3>Our Clients Are Our First Priority</h3>-->
+                                            <h1>{{ Pages1Info.title }}</h1>
+                                            <div class="separator"></div>
+                                            <p>{{ Pages1Info.label }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="scrooldown">
+                        <a href="#feature"><i class="fa fa-arrow-down"></i></a>
+                    </div>
+                </div>
+            </div>
         </section><!--End of home section -->
 
 
