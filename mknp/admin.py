@@ -6,6 +6,8 @@ from .models import CasePage
 from .models import ProjectPage
 from .models import NewsPage
 from .models import PagesInfo
+from .models import University
+from .models import SubPagesInfo
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -35,3 +37,11 @@ admin.site.register(NewsPage, NewsPageAdmin)
 class PagesInfoAdmin(admin.ModelAdmin):
 	list_display = ('pageIdx', 'tag', 'title', 'label', 'image')
 admin.site.register(PagesInfo, PagesInfoAdmin)
+
+class SubPagesInfoAdmin(admin.ModelAdmin):
+	list_display = ('pageIdx', 'title', 'label', 'bg')
+admin.site.register(SubPagesInfo, SubPagesInfoAdmin)
+
+class UniversityAdmin(admin.ModelAdmin):
+	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
+admin.site.register(University, UniversityAdmin)

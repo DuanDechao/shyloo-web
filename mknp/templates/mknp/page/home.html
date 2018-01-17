@@ -1,4 +1,4 @@
-{% extends "mknp/base.html" %}
+{% extends "mknp/common.html" %}
 
 {% block title %}日本名校{% endblock %}
 {% block head %}
@@ -16,16 +16,70 @@
 <!--For Plugins external css-->
 <link rel="stylesheet" href='{{ STATIC_URL }}css/plugins.css'>
 
-<!--Theme custom css -->
-<link rel="stylesheet" href='{{ STATIC_URL }}css/style.css' >
-
 <!--Theme Responsive css-->
 <link rel="stylesheet" href='{{ STATIC_URL }}css/responsive.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/gonex-icons.css' >
+
+<!--Theme custom css -->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/style.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/team.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/services.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/project.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/BreakingNews.css' >
 
 <script src='{{ STATIC_URL }}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'></script>
+<script src='{{ STATIC_URL }}js/jQuery.js'></script>
+<script src='{{ STATIC_URL }}js/BreakingNews.js'></script>
 {% endblock %}
 
 {% block body %}
+    <header id="main_menu" class="header navbar-fixed-top">            
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img height="50" width="100" src='{{ STATIC_URL }}images/logo.png'/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#home">{{ Pages1Info.tag }}</a></li>
+                                        <li><a href="#portfolio">{{ Pages2Info.tag }}</a></li>
+                                        <li><a href="#team">{{ Pages3Info.tag }}</a></li>
+                                        <li><a href="#clogo">{{ Pages4Info.tag }}</a></li>
+                                        <li><a href="#blog">{{ Pages5Info.tag }}</a></li>
+                                        <li><a href="#service">{{ Pages6Info.tag }}</a></li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>  
+                </div>
+
+            </div>
+
+        </div>
+    </header> <!--End of header -->
     <div class='preloader'><div class='loaded'>&nbsp;</div></div>
     <div class="culmn">
         <!--home Section -->
@@ -35,55 +89,24 @@
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
-			
-					<div class="item active" >
 
-						<div class="overlay"></div>
+                    {% for page1 in Pages1Infos %}
+                    {% if page1 == Pages1Info %}
+                    <div class="item active" style="background: url(../../media/{{ page1.image }}) center center no-repeat;">
+                    {% else %}
+                    <div class="item" style="background: url(../../media/{{ page1.image }}) center center no-repeat;">
+                    {% endif %}
+                        <div class="overlay"></div>
 
-						<div class="carousel-caption">
+                        <div class="carousel-caption">
 
-							<span class="h1">We are gonex</span>
+                            <span class="h1 title-Strong">{{ page1.title }}</span>
+                            <p>{{ page1.label }}</p>
 
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
+                        </div>
 
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-
-					<div class="item" >
-
-						<div class="overlay"></div>
-
-						<div class="carousel-caption">
-
-							<span class="h1">We are gonex</span>
-
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
-
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-
-					<div class="item" >
-
-						<div class="overlay"></div>
-
-						<div class="carousel-caption">
-
-							<span class="h1">We are gonex</span>
-
-							<p>Dui aliquam quisque. Nec feugiat ut neque odio quo, proin interdum, quis elit varius et duis, dui augue vehicula nam tinc.</p>
-
-							<a href="#" class="btn btn-default green-white">Show me more</a>
-
-						</div>
-
-					</div> <!-- /.item -->
-				
+                    </div> <!-- /.item -->
+                    {% endfor %}
 				</div> <!-- /.carousel-inner -->
 
 				<!-- Controls -->
@@ -170,20 +193,18 @@
         </section> <!-- End off Work Section -->
 		
     	 <!-- Team Section -->
-        <section id="team" class="team">
-            <div class="main_team_area">
+        <section id="team" style="background-image: url(../../media/{{ Pages3Info.image }});">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="head_title textwhite text-center margin-top-80">
+                        <div class="team_photo sections text-center">
+                            <div class="head_title text-center">
                                 <h2>{{ Pages3Info.title }}</h2>
                                 <div class="subtitle">
                                     {{ Pages3Info.label }}
                                 </div>
                                 <div class="separator"></div>
                             </div><!-- End off Head_title -->
-
-                            <div class="main_team">
+                            <!-- <div class="main_team">
                                 <ul>
                                     {% for teamPage in teamPages %}
                                     <li>
@@ -200,16 +221,33 @@
                                     </li>
                                     {% endfor %}
                                 </ul>
-                            </div>
+                            </div> -->
 
-                        </div><!-- End of main team contant --> 
+                            <div class="bodyCon08" ><!--学员-->
+                                <div class="students">
+                                      <div id="four_flash">
+                                        <div class="flashBg">
+                                            <ul class="mobile">
+                                                {% for teamPage in teamPages %}
+                                                <li>
+                                                    <a href=""><img src="{{ MEDIA_URL }}{{ teamPage.photo }}" /></a>
+                                                    <dd>{{ teamPage.name }}</dd>
+                                                    <p>{{ teamPage.label1 }}</p>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        <div class="but_left"><img src="{{ MEDIA_URL }}images/qianxleft.png" /></div>
+                                        <div class="but_right"><img src="{{ MEDIA_URL }}images/qianxr.png" /></div>
+                                      </div>
+                                </div>
+                            </div>
                     </div>
                 </div><!-- End of container -->
-            </div>
         </section><!-- End off Team Section -->
     	
     	  <!-- Client Logo Section -->
-        <section id="clogo" class="clogo">
+        <section id="clogo" class="clogo" style="background-image: url(../../media/{{ Pages4Info.image }});">
             <div class="container">
                 <div class="row">
                     <div class="main_clogo sections text-center">
@@ -234,10 +272,10 @@
 
 
         <!-- Blog Section -->
-        <section id="blog" class="blog">
-            <div class="container-fluid">
+        <section id="fh5co-work" data-section="work" style="background-image: url(../../media/{{ Pages5Info.image }});">
+            <div class="container">
                 <div class="row">
-                    <div class="main_blog sections">
+                    <div class="main_work sections text-center">
                         <div class="head_title text-center">
                             <h2>{{ Pages5Info.title }}</h2>
                             <div class="subtitle">
@@ -245,97 +283,54 @@
                             </div>
                             <div class="separator"></div>
                         </div><!-- End off Head_title -->
-                        <div class="main_blog_content">
+                        
+                        <div class="row row-bottom-padded-sm">
                             {% for projectPage in projectPages %}
-                            <div class="col-sm-3">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        {% if projectPage.pos == 'left' %}
-                                        <div class="col-sm-5 no-padding">
-                                        {% else %}
-                                        <div class="col-sm-5 col-sm-push-5 no-padding">
-                                        {% endif %}
-                                            <div class="single_blog_img">
-                                                <img src='{{ MEDIA_URL }}{{ projectPage.image }}' alt="" />
-                                            </div>
-                                        </div>
-                                        {% if projectPage.pos == 'left' %}
-                                        <div class="col-sm-5 no-padding">
-                                        {% else %}
-                                        <div class="col-sm-5 col-sm-pull-5 no-padding">
-                                        {% endif %}
-                                            <div class="single_blog_text s_b_{{ projectPage.pos }}">
-                                                <h3>{{ projectPage.label }}</h3>
-                                                <p>{{ projectPage.title }}</p>
-                                                <div class="separator2"></div>
-                                                <p>{{ projectPage.desc }}</p>
-                                                <!--<a href="" class="read_more">Read More >></a> -->
-                                            </div>
-                                        </div>
+                            <div class="col-md-4 col-sm-6 col-xxs-12">
+                                <a href="{{ MEDIA_URL }}{{ projectPage.image }}" class="fh5co-project-item image-popup to-animate">
+                                    <img src="{{ MEDIA_URL }}{{ projectPage.image }}" alt="Image" class="img-responsive">
+                                    <div class="fh5co-text">
+                                    <h2>{{ projectPage.title }}</h2>
+                                    <span>{{ projectPage.desc }}</span>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             {% endfor %}
+                            
                         </div>
-
                     </div>
                 </div>
-            </div><!-- End off container -->
-        </section><!-- End off Blog Section -->
+            </div>
+        </section>
         <hr />
 
-        <!-- service Section -->
-        <section id="service" class="service">
-            <div class="container-fluid">
+        <section id="news">
+            <div class="container">
                 <div class="row">
-                    <div class="main_service">
-                        <div class="col-md-6 col-sm-12 no-padding">
-
-                            <div class="single_service single_service_text text-right">
-                                <div class="head_title">
-                                    <h2>{{ Pages6Info.title }}</h2>
-                                </div>
-
-                                <div class="row" style="height:494px">
-
-                                    {% for newsPage in newsPages %}
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>{{ newsPage.title }}</h4>
-                                                    <p>{{ newsPage.label }}</p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa {{ newsPage.icon }}"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div><!-- End of col-sm-6 -->
-
-                        <div class="col-md-6 col-sm-12 no-padding">
-                            <figure class="single_service single_service_img">
-                                <div class="overlay-img"></div>
-                                <img src='{{ MEDIA_URL }}{{ Pages6Info.image }}' alt="" />
-                            </figure><!-- End of figure -->
-                        </div><!-- End of col-sm-6 -->
-
+                    <div class="sections text-center">
+                        <div class="BreakingNewsController easing" id="breakingnews1">
+                            <div class="bn-title"></div>
+                            <ul style="text-align: left;">
+                                <li><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry bu deneme text metinidir</a></li>
+                                <li><a href="#">It is a long established fact that a reader will be distracted</a></li>
+                                <li><a href="#">Many desktop publishing packages</a></li>
+                                <li><a href="#">All the Lorem Ipsum generators on the Internet tend to repeat predefined</a></li>
+                                <li><a href="#">The standard chunk of Lorem Ipsum used</a></li>
+                                <li><a href="#">English versions from the 1914 translation by H. Rackham.</a></li>
+                            </ul>
+                            <div class="bn-arrows"><a href=""><span class="bn-arrows-right"></span></a></div>  
+                        </div>
                     </div>
-                </div><!-- End of row -->
-            </div><!-- End of Container-fluid -->
-        </section><!-- End of service Section -->
+                </div>
+        </section>
+        <br>
+        <br>
+        <br>
 
         <div class="scrollup">
             <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>
-        <script src='{{ STATIC_URL }}js/vendor/jquery-1.11.2.min.js'></script>
+        
         <script src='{{ STATIC_URL }}js/vendor/bootstrap.min.js'></script>
 
         <script src='{{ STATIC_URL }}js/jquery.magnific-popup.js'></script>
@@ -349,6 +344,50 @@
 
 
         <script src='{{ STATIC_URL }}js/plugins.js'></script>
-        <script src='{{ STATIC_URL }}js/main.js'></script> 
+        <script src='{{ STATIC_URL }}js/main.js'></script>
+        <script type="text/javascript">
+        //学员
+        var _index5=0;
+        $("#four_flash .but_right img").click(function(){
+            _index5++;
+            var len=$(".flashBg ul.mobile li").length;
+            if(_index5+5>len){
+                $("#four_flash .flashBg ul.mobile").stop().append($("ul.mobile").html());
+            }
+            $("#four_flash .flashBg ul.mobile").stop().animate({left:-_index5*326},1000);
+            });
+
+            
+        $("#four_flash .but_left img").click(function(){
+            if(_index5==0){
+                $("ul.mobile").prepend($("ul.mobile").html());
+                $("ul.mobile").css("left","-1380px");
+                _index5=6
+            }
+            _index5--;
+            $("#four_flash .flashBg ul.mobile").stop().animate({left:-_index5*326},1000);
+            });
+        </script> 
+
+        <script>
+            $(document).ready(function(){
+                $("#breakingnews1").BreakingNews({
+                    background      :'#FFF',
+                    title           :'热点新闻',
+                    titlecolor      :'#FFF',
+                    titlebgcolor    :'#099',
+                    linkcolor       :'#333',
+                    linkhovercolor  :'#099',
+                    fonttextsize    :16,
+                    isbold          :false,
+                    border          :'solid 1px #099',
+                    width           :'100%',
+                    timer           :2000,
+                    autoplay        :true,
+                    effect          :'slide'
+                        
+                });
+            }); 
+        </script>
 
 {% endblock %}

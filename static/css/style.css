@@ -180,6 +180,12 @@ h6 {
     margin-bottom: .9rem;
 }*/
 
+.title-Strong {
+	font-size:40px;
+	font-weight:700;
+	color:#f95353;
+}
+
 p:last-child {
     margin-bottom: 0px;
 }
@@ -652,9 +658,31 @@ input::-ms-input-placeholder {
 /**********************
 HOME SECTION
 ***********************/
+/**********************
+ICON FONT
+***********************/
+
+.ico, .fa {
+    color: #ffffff;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.ico:hover,
+.ico:focus,
+.fa:hover,
+.fa:focus {
+    color: #ffffff;
+}
+
+a, a:hover, a:visited, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
 
 #home {
-	height: 715px;
+	height: 550px;
 }
 
 .carousel {
@@ -663,7 +691,7 @@ HOME SECTION
 }
 
 .carousel .item {
-	height: 715px;
+	height: 550px;
 	background: url("../../media/images/homebg.jpg") center center no-repeat;
 	background-size: cover;
 }
@@ -688,6 +716,7 @@ HOME SECTION
 .carousel-caption p {
 	max-width: 500px;
 	margin: 52px auto 0;
+	font-size:15px;
 }
 
 .carousel-caption .btn-default {
@@ -1205,8 +1234,18 @@ li .single_team_text p{
     color:#fff;
 }
 
+.team_photo{
+    overflow: hidden;
+}
 
-
+.team_photo a{
+    width: 100%;
+    overflow: hidden;
+    line-height: 100px;
+    background: #fff;
+    margin-bottom:30px;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0, 0.25);
+}
 
 /* Carousel */
 .testimonial{
@@ -1268,6 +1307,8 @@ li .single_team_text p{
     margin-bottom:30px;
     box-shadow: 1px 1px 1px 0px rgba(0,0,0, 0.25);
 }
+
+
 
 
 /*=================================================================

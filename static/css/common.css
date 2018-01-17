@@ -78,7 +78,7 @@ p {
     padding: 0px 15px;
 }
 .navbar-brand>img {
-    max-width: 80%;
+    max-width: 90%;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
     background-color:transparent;

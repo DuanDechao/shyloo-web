@@ -139,21 +139,7 @@
 	z-index: 90;
 }
 /*-- start-smartphone_nav --*/
-.nav {
-    display:none;
-}
-.nav-item {
-    float:left;
-    *display:inline;
-    zoom:1;
-}
-.nav-item a {
-    display:block;
-}
-.nav-item a:hover {
-	background: #18BD9B;
-	color: #FFFFFF;
-}
+
 .nav-mobile {
    display: none;
 	cursor: pointer;
@@ -167,10 +153,7 @@
 .nav-mobile {
     display:block;
 }
-.nav {
-	margin-top:44px;
-   width:100%;
-}
+
 .nav-list {
     display:none;
 }
@@ -200,7 +183,7 @@
 }
 /*start header_btm */
 .header_btm {
-	padding: 4%;
+	padding: 6%;
 }
 /* h_left */
 .h_left {

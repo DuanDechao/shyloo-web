@@ -73,225 +73,45 @@ $(function () {
 {% endblock %}
 
 {% block body %}
-<body>
-<!-- start header -->
 <div class="header_bg">
 <div class="wrap">
 	<div class="header_btm">
 		<div class="h_left">
-			<h2>Welcome Ladies & Gents to Calm Website.</h2>
-			<h3>A theme more stylish than any other on themeforest</h3>
-		</div>
-		<div class="soc_icons">
-			<h2>find us online </h2>
-				<ul>
-					<li><a class="icon1" href="#"></a></li>
-					<li><a class="icon2" href="#"></a></li>
-					<li><a class="icon3" href="#"></a></li>
-					<li><a class="icon4" href="#"></a></li>
-					<li><a class="icon5" href="#"></a></li>
-					<div class="clear"></div>
-				</ul>	
+			<h2>日本著名学校详细信息</h2>
+			<h3>你要的都在这里</h3>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
 </div>
 <!-- start main -->
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
 <div class="main_bg">
 <div class="wrap">
 	<div class="main">
-		<!-- start popup -->
-		<div id="small-dialog" class="mfp-hide">
-			<div class="pop_up">
-			 	<h2>Lorem Ipsum is simply dummy text of the printing and industry</h2>
-			 	<img src="images/zoom.jpg" title="image-name">
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-				<a class="btn" href="details.html">Read more</a>
-			</div>
-		</div>
-		<!-- end popup -->
-		<!-- start gallery  -->
 			<div class="container">
 					<ul id="filters" class="clearfix">
-						<li><span class="filter active" data-filter="app card icon logo web">All</span></li> /
-						<li><span class="filter" data-filter="app card logo">design</span></li> /
-						<li><span class="filter" data-filter="card app web icon">branding</span></li> /
-						<li><span class="filter" data-filter="icon web app">graphic</span></li> /
-						<li><span class="filter" data-filter="logo app">animation</span></li> /
-						<li><span class="filter" data-filter="web app card logo icon">illustration</span></li> /
-						<li><span class="filter" data-filter="web app logo card">photography</span></li>
+						<li><span class="filter active" data-filter="all">所有</span></li> /
+						{% for key,value in universityTypes.items %}
+						<li><span class="filter" data-filter="{{ key }}">{{ value }}</span></li> /
+						{% endfor %}
 					</ul>
 		<div id="portfoliolist">
+			{% for university in universitys %}
 			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio logo1" data-cat="logo">
+				<div class="portfolio {{ university.label }}" data-cat="{{ university.label }}">
 					<div class="portfolio-wrapper">				
-							<img src="{{ MEDIA_URL }}images/pic1.jpg"  alt="Image 2" />
+							<a href="{{ university.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ university.image }}"  alt="Image 2" /></a>
 						<div class="label">
 							<div class="label-text">
-								<p class="text-title">Bird Document</p>
-								<span class="text-category">Logo</span>
+								<p class="text-title">{{ university.title }}</p>
+								<span class="text-category">{{ university.desc }}</span>
 							</div>
 							<div class="label-bg"></div>
 						</div>
 					</div>
 				</div>		
 			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio app" data-cat="app">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic2.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Visual Infography</p>
-								<span class="text-category">APP</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>		
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio web" data-cat="web">
-					<div class="portfolio-wrapper">						
-							<img src="{{ MEDIA_URL }}images/pic3.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Sonor's Design</p>
-								<span class="text-category">Web design</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>				
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio card" data-cat="card">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic4.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Typography Company</p>
-								<span class="text-category">Business card</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>	
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">	
-				<div class="portfolio app" data-cat="app">
-					<div class="portfolio-wrapper">
-							<img src="{{ MEDIA_URL }}images/pic5.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Weatherette</p>
-								<span class="text-category">APP</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>			
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio card" data-cat="card">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic6.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">BMF</p>
-								<span class="text-category">Business card</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>	
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio card" data-cat="card">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic7.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Techlion</p>
-								<span class="text-category">Business card</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>	
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio logo1" data-cat="logo">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic8.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">KittyPic</p>
-								<span class="text-category">Logo</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>																																							
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">
-				<div class="portfolio app" data-cat="app">
-					<div class="portfolio-wrapper">			
-							<img src="{{ MEDIA_URL }}images/pic9.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Graph Plotting</p>
-								<span class="text-category">APP</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>		
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">												
-				<div class="portfolio web" data-cat="web">
-					<div class="portfolio-wrapper">						
-							<img src="{{ MEDIA_URL }}images/pic10.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Student Guide</p>
-								<span class="text-category">Web design</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>	
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">																
-				<div class="portfolio icon" data-cat="icon">
-					<div class="portfolio-wrapper">
-							<img src="{{ MEDIA_URL }}images/pic11.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">Scoccer</p>
-								<span class="text-category">Icon</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>			
-			</a>
-			<a class="popup-with-zoom-anim" href="#small-dialog">																																																													
-				<div class="portfolio icon" data-cat="icon">
-					<div class="portfolio-wrapper">						
-							<img src="{{ MEDIA_URL }}images/pic12.jpg"  alt="Image 2" />
-						<div class="label">
-							<div class="label-text">
-								<p class="text-title">3D Map</p>
-								<span class="text-category">Icon</span>
-							</div>
-							<div class="label-bg"></div>
-						</div>
-					</div>
-				</div>		
-			</a>	
+			{% endfor %}
 		</div>
 	</div><!-- end container -->
 	</div>

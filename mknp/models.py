@@ -1,6 +1,7 @@
 from django.db import models
 #from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 # Create your models here.
 
 class HomePage(models.Model):
@@ -80,12 +81,44 @@ class PagesInfo(models.Model):
 		('page5', 'page5'),
 		('page6', 'page6'),
 	)
-	pageIdx = models.CharField(max_length = 10, choices=PAGE_CHOICES, default='page1', unique = True)
-	tag = models.CharField(max_length = 250, default='1')
+	pageIdx = models.CharField(max_length = 10, choices=PAGE_CHOICES, default='page1')
+	tag = models.CharField(max_length = 100, default='1')
 	title = models.CharField(max_length = 250)
 	label = models.CharField(max_length = 250)
 	image = models.ImageField(upload_to = 'images', blank=True)
 
 	def __str__(self):
 		return self.pageIdx
+
+class SubPagesInfo(models.Model):
+	PAGE_CHOICES = (
+		('university_list', 'university_list'),
+		('university_detail', 'university_detail'),
+	)
+	pageIdx = models.CharField(max_length = 30, choices=PAGE_CHOICES, default='page1', unique=True)
+	title = models.CharField(max_length = 250)
+	label = models.CharField(max_length = 250)
+	bg = models.ImageField(upload_to = 'images', blank=True)
+
+	def __str__(self):
+		return self.pageIdx
+
+class University(models.Model):
+	label = models.CharField(max_length = 250)
+	labelName = models.CharField(max_length = 250)
+	image = models.FileField(upload_to = 'images')
+	title = models.CharField(max_length = 250)
+	label = models.CharField(max_length = 250, blank=True)
+	detail_title = models.CharField(max_length = 250)
+	detail_image = models.FileField(upload_to = 'images', default='images/university_detail_default.jpg')
+	detail_desc1  = models.TextField(blank=True)
+	detail_desc2  = models.TextField(blank=True)
+
+	def get_absolute_url(self):
+		return reverse('mknp:university_detail',
+                        args=[self.title
+                       ])
+
+	def __str__(self):
+		return self.title
 
