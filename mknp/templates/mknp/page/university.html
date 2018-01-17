@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+{% extends "mknp/base.html" %}
+
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<link href="{{ STATIC_URL }}css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<!--  jquery plguin -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<!-- start gallery -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.easing.min.js"></script>	
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.mixitup.min1.js"></script>
+<script type="text/javascript">
+$(function () {
+	
+	var filterList = {
+	
+		init: function () {
+		
+			// MixItUp plugin
+			// http://mixitup.io
+			$('#portfoliolist').mixitup({
+				targetSelector: '.portfolio',
+				filterSelector: '.filter',
+				effects: ['fade'],
+				easing: 'snap',
+				// call the hover effect
+				onMixEnd: filterList.hoverEffect()
+			});				
+		
+		},
+		
+		hoverEffect: function () {
+		
+			// Simple parallax effect
+			$('#portfoliolist .portfolio').hover(
+				function () {
+					$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+					$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+				},
+				function () {
+					$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+					$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+				}		
+			);				
+		
+		}
+
+	};
+	
+	// Run the show!
+	filterList.init();
+		
+});	
+</script>
+<!-- Add fancyBox main JS and CSS files -->
+<link href="{{ STATIC_URL }}css/magnific-popup1.css" rel="stylesheet" type="text/css">
+<script src="{{ STATIC_URL }}js/jquery.magnific-popup1.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
+		$('.popup-with-zoom-anim').magnificPopup({
+			type: 'inline',
+			fixedContentPos: false,
+			fixedBgPos: true,
+			overflowY: 'auto',
+			closeBtnInside: true,
+			preloader: false,
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in'
+	});
+});
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="header_bg">
+<div class="wrap">
+	<div class="header_btm">
+		<div class="h_left">
+			<h2>日本著名学校详细信息</h2>
+			<h3>你要的都在这里</h3>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+	<div class="main">
+			<div class="container">
+					<ul id="filters" class="clearfix">
+						<li><span class="filter active" data-filter="all">所有</span></li> /
+						{% for key,value in universityTypes.items %}
+						<li><span class="filter" data-filter="{{ key }}">{{ value }}</span></li> /
+						{% endfor %}
+					</ul>
+		<div id="portfoliolist">
+			{% for university in universitys %}
+			<a class="popup-with-zoom-anim" href="#small-dialog">
+				<div class="portfolio {{ university.label }}" data-cat="{{ university.label }}">
+					<div class="portfolio-wrapper">				
+							<a href="{{ university.get_absolute_url }}"><img src="{{ MEDIA_URL }}{{ university.image }}"  alt="Image 2" /></a>
+						<div class="label">
+							<div class="label-text">
+								<p class="text-title">{{ university.title }}</p>
+								<span class="text-category">{{ university.desc }}</span>
+							</div>
+							<div class="label-bg"></div>
+						</div>
+					</div>
+				</div>		
+			</a>
+			{% endfor %}
+		</div>
+	</div><!-- end container -->
+	</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,130 @@
+/**********************
+SERVICES SECTION
+***********************/
+.main_services{
+    overflow: hidden;
+}
+
+.main_services a{
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 100px;
+    background: #fff;
+    margin-bottom:30px;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0, 0.25);
+}
+
+#services {
+	padding: 115px 0;
+	text-align: center;
+}
+
+#services>.container>.row:last-of-type {
+	margin-top: 30px;
+}
+
+#services .punchbox {
+	padding: 90px 60px 65px;
+	color: #605f65;
+	text-align: left;
+	line-height: 1;
+}
+
+#services .punchline {
+	text-transform: none;
+	font-family: 'Lora', serif;
+	font-size: 15px;
+}
+
+#services .punchline span {
+	display: block;
+}
+
+#services .punchline span:nth-of-type(1) {
+	font-size: 33px;
+}
+
+#services .punchline span:nth-of-type(2) {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 50px;
+	color: #f95353;
+	margin-top: 16px;
+}
+
+#services .punchline span:nth-of-type(3) {
+	font-size: 20px;
+	font-style: italic;
+	margin-top: 26px;
+}
+
+#services .service {
+	padding: 91px 45px 50px;
+	background: #f7f7f7;
+	cursor: pointer;
+	-moz-transition: background 0.3s ease-in-out;
+	-webkit-transition: background 0.3s ease-in-out;
+	transition: background 0.3s ease-in-out;
+}
+
+#services .service:hover {
+	color: #ffffff;
+	background: #56c553;
+}
+
+#services .service:hover h4,
+#services .service:hover .service-link {
+	color: #ffffff;
+}
+
+#services .service h4 {
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+#services .service p {
+	margin-top: 25px;
+	line-height: 1.5;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+#services .service .service-link {
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	display: inline-block;
+	color: #f95353;
+	margin-top: 30px;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+#services .service .service-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    -moz-transition: width 0.3s ease-in-out;
+	-webkit-transition: width 0.3s ease-in-out;
+	transition: width 0.3s ease-in-out;
+}
+
+#services .service .service-link:hover::after {
+    width: 100%;
+}
+
+/**********************
+SERVICES SECTION
+***********************/
+#services>.container>.row:last-of-type {
+    margin-top: 0px;
+}
+
+#services>.container>.row>div {
+    margin-top: 30px;
+}

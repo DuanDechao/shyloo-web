@@ -1,0 +1,310 @@
+{% extends "mknp/base.html" %}
+
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<!--Google Fonts link-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/iconfont.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick-theme.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/font-awesome.min.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/jquery.fancybox.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/bootstrap.min.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/magnific-popup.css'>
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+<!--For Plugins external css-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/plugins.css'>
+
+<!--Theme custom css -->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/style.css' >
+
+<!--Theme Responsive css-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/responsive.css' >
+
+<script src='{{ STATIC_URL }}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'></script>
+{% endblock %}
+
+{% block body %}
+    <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+    <div class="culmn">
+        <!--home Section -->
+        <section id="home" style="background: url(../../media/{{ Pages1Info.image }}) no-repeat center center;">
+            <div class="overlay">
+                <div class="home_skew_border">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="main_home_slider text-center">
+                                    <div class="single_home_slider">
+                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                            <!--<h3>Our Clients Are Our First Priority</h3>-->
+                                            <h1>{{ Pages1Info.title }}</h1>
+                                            <div class="separator"></div>
+                                            <p>{{ Pages1Info.label }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="scrooldown">
+                        <a href="#feature"><i class="fa fa-arrow-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section><!--End of home section -->
+
+
+        <!--feature section -->
+        <section id="feature" class="feature sections">
+            <div class="container">
+                <div class="row">
+                    <div class="main_feature text-center">
+                        {% for homePage in homePages %}
+                        <div class="col-sm-3">
+                            <div class="single_feature">
+                                <div class="single_feature_icon">
+                                    <i class="fa {{ homePage.icon }}"></i>
+                                </div>
+
+                                <h4>{{ homePage.title }}</h4>
+                                <div class="separator3"></div>
+                                <p>{{ homePage.desc }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div><!--End of container -->
+        </section><!--End of feature Section -->
+        <hr />
+
+    	<section id="portfolio" class="portfolio sections">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_portfolio">
+                        <div class="col-sm-12">
+                            <div class="head_title text-center">
+                                <h2>{{ Pages2Info.title }}</h2>
+                                <div class="subtitle">
+                                    {{ Pages2Info.label }}
+                                </div>
+                                <div class="separator"></div>
+                            </div>
+                        </div>
+                        <div class="work_menu text-center">
+                            <div id="filters" class="toolbar mb2 mt2">
+                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>
+                                {% for key,value in activityPageTypes.items %}
+                                /<button class="btn-md fil-cat filter" data-rel="{{ key }}" data-filter=".{{ key }}">{{ value }}</button>
+                                {% endfor %}
+                            </div> 
+
+                        </div>
+
+                        <div style="clear:both;"></div>     
+                        <div id="portfoliowork">
+                            {% for activityPage in activityPages %}
+                            <div class="single_portfolio tile scale-anm {{ activityPage.label }}">
+                                <img src="{{ MEDIA_URL }}{{ activityPage.image }}" alt="" />
+                                <a href="{{ MEDIA_URL }}{{ activityPage.image }}" class="portfolio-img">
+                                    <div class="grid_item_overlay">
+                                        <div class="separator4"></div>
+                                        <h3>{{ activityPage.title }}</h3>
+                                        <p>{{ activityPage.desc }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div style="clear:both;"></div>  
+                    </div>
+                </div>
+            </div><!-- End off container --> 
+        </section> <!-- End off Work Section -->
+		
+    	 <!-- Team Section -->
+        <section id="team" class="team">
+            <div class="main_team_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="head_title textwhite text-center margin-top-80">
+                                <h2>{{ Pages3Info.title }}</h2>
+                                <div class="subtitle">
+                                    {{ Pages3Info.label }}
+                                </div>
+                                <div class="separator"></div>
+                            </div><!-- End off Head_title -->
+
+                            <div class="main_team">
+                                <ul>
+                                    {% for teamPage in teamPages %}
+                                    <li>
+                                        <div class="single_team_img">
+                                            <img src='{{ MEDIA_URL }}{{ teamPage.photo }}' alt="" />
+                                        </div>
+                                        <div class="single_team_text">
+                                            <h4>{{ teamPage.name }}</h4>
+                                            <p>{{ teamPage.label1 }}<br>
+                                            {{ teamPage.label2 }}<br>
+                                            {{ teamPage.label3 }}<br>
+                                            {{ teamPage.label4 }}</p>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        </div><!-- End of main team contant --> 
+                    </div>
+                </div><!-- End of container -->
+            </div>
+        </section><!-- End off Team Section -->
+    	
+    	  <!-- Client Logo Section -->
+        <section id="clogo" class="clogo">
+            <div class="container">
+                <div class="row">
+                    <div class="main_clogo sections text-center">
+                        <div class="head_title text-center">
+                            <h2>{{ Pages4Info.title }}</h2>
+                            <div class="subtitle">
+                                {{ Pages4Info.label }}
+                            </div>
+                            <div class="separator"></div>
+                        </div><!-- End off Head_title -->
+
+                        {% for casePage in casePages %}
+                        <div class="col-sm-3 col-xs-6"> 
+                            <a href=""><img height="100" width="200" src='{{ MEDIA_URL }}{{ casePage.image }}' alt="" /></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+        </section><!-- End off clogo Section -->
+
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_blog sections">
+                        <div class="head_title text-center">
+                            <h2>{{ Pages5Info.title }}</h2>
+                            <div class="subtitle">
+                                {{ Pages5Info.label }}
+                            </div>
+                            <div class="separator"></div>
+                        </div><!-- End off Head_title -->
+                        <div class="main_blog_content">
+                            {% for projectPage in projectPages %}
+                            <div class="col-sm-3">
+                                <div class="single_blog_area textwhite">
+                                    <div class="row">
+                                        {% if projectPage.pos == 'left' %}
+                                        <div class="col-sm-5 no-padding">
+                                        {% else %}
+                                        <div class="col-sm-5 col-sm-push-5 no-padding">
+                                        {% endif %}
+                                            <div class="single_blog_img">
+                                                <img src='{{ MEDIA_URL }}{{ projectPage.image }}' alt="" />
+                                            </div>
+                                        </div>
+                                        {% if projectPage.pos == 'left' %}
+                                        <div class="col-sm-5 no-padding">
+                                        {% else %}
+                                        <div class="col-sm-5 col-sm-pull-5 no-padding">
+                                        {% endif %}
+                                            <div class="single_blog_text s_b_{{ projectPage.pos }}">
+                                                <h3>{{ projectPage.label }}</h3>
+                                                <p>{{ projectPage.title }}</p>
+                                                <div class="separator2"></div>
+                                                <p>{{ projectPage.desc }}</p>
+                                                <!--<a href="" class="read_more">Read More >></a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- End off container -->
+        </section><!-- End off Blog Section -->
+        <hr />
+
+        <!-- service Section -->
+        <section id="service" class="service">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_service">
+                        <div class="col-md-6 col-sm-12 no-padding">
+
+                            <div class="single_service single_service_text text-right">
+                                <div class="head_title">
+                                    <h2>{{ Pages6Info.title }}</h2>
+                                </div>
+
+                                <div class="row" style="height:494px">
+
+                                    {% for newsPage in newsPages %}
+                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
+                                        <div class="row">
+
+                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                                <article class="single_service_right_text">
+                                                    <h4>{{ newsPage.title }}</h4>
+                                                    <p>{{ newsPage.label }}</p>
+                                                </article>
+                                            </div>
+                                            <div class="col-sm-1 col-xs-1">
+                                                <figure class="single_service_icon">
+                                                    <i class="fa {{ newsPage.icon }}"></i>
+                                                </figure><!-- End of figure -->
+                                            </div>
+                                        </div>
+                                    </div><!-- End of col-sm-12 -->
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div><!-- End of col-sm-6 -->
+
+                        <div class="col-md-6 col-sm-12 no-padding">
+                            <figure class="single_service single_service_img">
+                                <div class="overlay-img"></div>
+                                <img src='{{ MEDIA_URL }}{{ Pages6Info.image }}' alt="" />
+                            </figure><!-- End of figure -->
+                        </div><!-- End of col-sm-6 -->
+
+                    </div>
+                </div><!-- End of row -->
+            </div><!-- End of Container-fluid -->
+        </section><!-- End of service Section -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        <script src='{{ STATIC_URL }}js/vendor/jquery-1.11.2.min.js'></script>
+        <script src='{{ STATIC_URL }}js/vendor/bootstrap.min.js'></script>
+
+        <script src='{{ STATIC_URL }}js/jquery.magnific-popup.js'></script>
+        <script src='{{ STATIC_URL }}js/jquery.mixitup.min.js'></script>
+        <script src='{{ STATIC_URL }}js/jquery.easing.1.3.js'></script>
+        <script src='{{ STATIC_URL }}js/jquery.masonry.min.js'></script>
+
+        <!--slick slide js -->
+        <script src='{{ STATIC_URL }}css/slick/slick.js'></script>
+        <script src='{{ STATIC_URL }}css/slick/slick.min.js'></script>
+
+
+        <script src='{{ STATIC_URL }}js/plugins.js'></script>
+        <script src='{{ STATIC_URL }}js/main.js'></script> 
+
+{% endblock %}
