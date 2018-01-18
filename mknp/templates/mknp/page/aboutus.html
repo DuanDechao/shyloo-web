@@ -1,0 +1,44 @@
+{% extends "mknp/base.html" %}
+
+{% block title %}关于我们{% endblock %}
+{% block head %}
+<link href="{{ STATIC_URL }}css/style1.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block body %}
+<!-- start slider -->
+<div class="slider_bg" style="background: url(../../media/{{ pageInfo.bg }}); background-size:100%;">
+<div class="wrap">
+	<div class="slider">
+		<h2>{{ pageInfo.title }}</h2>
+		<h3>{{ pageInfo.label }}</h3>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+	<div class="main">
+		<div class="content">
+			<!-- start about -->
+			<div class="about">
+					 <div class="cont-grid-img img_style">
+			     		<img src="{{ MEDIA_URL }}{{ companyinfo.image }}" alt="">
+			     	</div>
+			       <div class="cont-grid">
+					       	<h4>{{ companyinfo.title }}</h4>
+					       	<p class="para">{{ companyinfo.desc1 }}</p>
+					       	<p class="para">{{ companyinfo.desc2 }}</p>
+			      	</div>
+			      	<div class="clear"></div>
+			    	<div class="about-p">
+				    	<p class="para">{{ companyinfo.desc3 }} </p>
+						<p class="para">{{ companyinfo.desc4 }}</p>
+						<p class="para">{{ companyinfo.desc5 }}</p>
+					</div>
+			</div>
+			<!-- end about -->
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

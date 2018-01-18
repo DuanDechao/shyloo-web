@@ -10,6 +10,7 @@ from .models import NewsPage
 from .models import PagesInfo
 from .models import University
 from .models import SubPagesInfo
+from .models import CompanyInfo
 
 # Create your views here.
 
@@ -47,3 +48,8 @@ def university_detail(request, name):
 	pageInfo = SubPagesInfo.objects.filter(pageIdx='university_detail')[0]
 	university = get_object_or_404(University, title=name)
 	return render_to_response('mknp/page/university_detail.html', {'pageInfo':pageInfo, 'university':university}, RequestContext(request))
+
+def aboutus(request):
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='aboutus')[0]
+	companyInfo = CompanyInfo.objects.all()[0]
+	return render_to_response('mknp/page/aboutus.html', {'pageInfo':pageInfo, 'companyinfo':companyInfo}, RequestContext(request))
