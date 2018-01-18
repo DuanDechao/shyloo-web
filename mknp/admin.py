@@ -8,6 +8,7 @@ from .models import NewsPage
 from .models import PagesInfo
 from .models import University
 from .models import SubPagesInfo
+from .models import CompanyInfo
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -45,3 +46,7 @@ admin.site.register(SubPagesInfo, SubPagesInfoAdmin)
 class UniversityAdmin(admin.ModelAdmin):
 	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
 admin.site.register(University, UniversityAdmin)
+
+class CompanyInfoAdmin(admin.ModelAdmin):
+	list_display = ('title', 'image')
+admin.site.register(CompanyInfo, CompanyInfoAdmin)

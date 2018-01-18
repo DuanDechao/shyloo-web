@@ -11,10 +11,14 @@ class HomePage(models.Model):
 		('fa-lightbulb-o', 'fa-lightbulb-o'),
 		('fa-comments-o', 'fa-comments-o'),
 	)
+
+	URL_CHOICES = (
+		('university', 'university'),
+	)
 	title = models.CharField(max_length = 250)
 	desc = models.CharField(max_length = 250)
 	icon = models.CharField(max_length = 60, choices=ICON_CHOICES, default='fa-clone')
-
+	directUrl = models.CharField(max_length = 100, choices=URL_CHOICES, default='university')
 	def __str__(self):
 		return self.title
 
@@ -94,6 +98,7 @@ class SubPagesInfo(models.Model):
 	PAGE_CHOICES = (
 		('university_list', 'university_list'),
 		('university_detail', 'university_detail'),
+		('aboutus', 'aboutus'),
 	)
 	pageIdx = models.CharField(max_length = 30, choices=PAGE_CHOICES, default='page1', unique=True)
 	title = models.CharField(max_length = 250)
@@ -119,6 +124,17 @@ class University(models.Model):
                         args=[self.title
                        ])
 
+	def __str__(self):
+		return self.title
+
+class CompanyInfo(models.Model):
+	title = models.CharField(max_length = 500)
+	image = models.FileField(upload_to = 'images')
+	desc1  = models.TextField(blank=True)
+	desc2  = models.TextField(blank=True)
+	desc3  = models.TextField(blank=True)
+	desc4  = models.TextField(blank=True)
+	desc5  = models.TextField(blank=True)
 	def __str__(self):
 		return self.title
 
