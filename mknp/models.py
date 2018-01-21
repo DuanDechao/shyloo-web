@@ -16,7 +16,6 @@ class HomePage(models.Model):
 		('university', 'university'),
 		('applyinfo/研究生申请', 'applyinfo/研究生申请'),
 	)
-	
 	title = models.CharField(max_length = 250)
 	desc = models.CharField(max_length = 250)
 	icon = models.CharField(max_length = 60, choices=ICON_CHOICES, default='fa-clone')
@@ -54,6 +53,10 @@ class CasePage(models.Model):
 		return self.tag
 
 class ProjectPage(models.Model):
+	POS_CHOICES = (
+		('left', 'left'),
+		('right', 'right'),
+	)
 	URL_CHOICES = (
 		('university', 'university'),
 	)
@@ -61,6 +64,7 @@ class ProjectPage(models.Model):
 	title = models.CharField(max_length = 250)
 	label = models.CharField(max_length = 250)
 	desc = models.TextField()
+	pos = models.CharField(max_length = 10, choices=POS_CHOICES, default='left')
 	directUrl = models.CharField(max_length = 100, choices=URL_CHOICES, default='university')
 	
 	def __str__(self):
