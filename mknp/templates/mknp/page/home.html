@@ -289,7 +289,7 @@
                         <div class="row row-bottom-padded-sm">
                             {% for projectPage in projectPages %}
                             <div class="col-md-3 col-sm-6 col-xxs-12">
-                                <a href="{{ MEDIA_URL }}{{ projectPage.image }}" class="fh5co-project-item image-popup to-animate">
+                                <a href="{{ projectPage.directUrl }}" class="fh5co-project-item image-popup to-animate">
                                     <img src="{{ MEDIA_URL }}{{ projectPage.image }}" alt="Image" class="img-responsive">
                                     <div class="fh5co-text">
                                     <h2>{{ projectPage.title }}</h2>
