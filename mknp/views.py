@@ -11,6 +11,7 @@ from .models import PagesInfo
 from .models import University
 from .models import SubPagesInfo
 from .models import CompanyInfo
+from .models import ApplyInfo
 
 # Create your views here.
 
@@ -53,3 +54,7 @@ def aboutus(request):
 	pageInfo = SubPagesInfo.objects.filter(pageIdx='aboutus')[0]
 	companyInfo = CompanyInfo.objects.all()[0]
 	return render_to_response('mknp/page/aboutus.html', {'pageInfo':pageInfo, 'companyinfo':companyInfo}, RequestContext(request))
+	
+def applyinfo(request, tagName):
+	applyInfo = get_object_or_404(ApplyInfo, tag=tagName)
+	return render_to_response('mknp/page/apply_flow.html', {'applyInfo': applyInfo}, RequestContext(request))
