@@ -29,7 +29,7 @@ class CasePageAdmin(admin.ModelAdmin):
 admin.site.register(CasePage, CasePageAdmin)
 
 class ProjectPageAdmin(admin.ModelAdmin):
-	list_display = ('title', 'label', 'image', 'pos')
+	list_display = ('title', 'label', 'image', 'directUrl')
 admin.site.register(ProjectPage, ProjectPageAdmin)
 
 class NewsPageAdmin(admin.ModelAdmin):
