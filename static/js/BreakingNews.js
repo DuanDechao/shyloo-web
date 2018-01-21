@@ -1,4 +1,4 @@
-(function(jQuery){
+(function(jquery){
 
 	$.fn.BreakingNews = function(settings){
 			var defaults={
@@ -127,4 +127,4 @@
 			
 		};
 		
-})(jQuery);
+})(jquery);
