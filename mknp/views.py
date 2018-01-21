@@ -12,6 +12,7 @@ from .models import University
 from .models import SubPagesInfo
 from .models import CompanyInfo
 from .models import ApplyInfo
+from .models import ServiceInfo
 
 # Create your views here.
 
@@ -58,3 +59,7 @@ def aboutus(request):
 def applyinfo(request, tagName):
 	applyInfo = get_object_or_404(ApplyInfo, tag=tagName)
 	return render_to_response('mknp/page/apply_flow.html', {'applyInfo': applyInfo}, RequestContext(request))
+	
+def serviceinfo(request, tagName):
+	serviceInfo = get_object_or_404(ServiceInfo, tag=tagName)
+	return render_to_response('mknp/page/items.html', {'serviceInfo':serviceInfo}, RequestContext(request))

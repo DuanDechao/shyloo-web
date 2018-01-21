@@ -1,0 +1,130 @@
+{% extends "mknp/base.html" %}
+
+{% block title %}关于我们{% endblock %}
+{% block head %}
+<link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block body %}
+
+
+<!-- One -->
+<section id="one" class="wrapper">
+	<div class="inner split">
+		<section>
+			<h2>{{ serviceInfo.title }}</h2>
+			<p>{{ serviceInfo.label }}</p>
+			
+		</section>
+		<section>
+			<ul class="checklist">
+				<li>{{ serviceInfo.feature1 }}</li>
+				<li>{{ serviceInfo.feature2 }}</li>
+				{% if serviceInfo.feature3 != "" %}
+				<li>{{ serviceInfo.feature3 }}</li>
+				{% endif %}
+				{% if serviceInfo.feature4 != "" %}
+				<li>{{ serviceInfo.feature4 }}</li>
+				{% endif %}
+				{% if serviceInfo.feature5 != "" %}
+				<li>{{ serviceInfo.feature5 }}</li>
+				{% endif %}
+			</ul>
+		</section>
+	</div>
+</section>
+
+<!-- Two -->
+<section id="two" class="wrapper style2 alt">
+	<div class="inner">
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item1_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item1_title }}</h3>
+				<p>{{ serviceInfo.item1_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item2_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item2_title }}</h3>
+				<p>{{ serviceInfo.item2_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		{% if serviceInfo.item3_title != "" %}
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item3_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item3_title }}</h3>
+				<p>{{ serviceInfo.item3_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+		{% if serviceInfo.item4_title != "" %}
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item4_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item4_title }}</h3>
+				<p>{{ serviceInfo.item4_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+		{% if serviceInfo.item5_title != "" %}
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item5_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item5_title }}</h3>
+				<p>{{ serviceInfo.item5_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+		{% if serviceInfo.item6_title != "" %}
+		<div class="spotlight">
+			<div class="image">
+				<img src="{{ MEDIA_URL }}{{ serviceInfo.item6_image }}" alt="" />
+			</div>
+			<div class="content">
+				<h3>{{ serviceInfo.item6_title }}</h3>
+				<p>{{ serviceInfo.item6_desc }}</p>
+				<ul class="actions">
+					<li><a href="#" class="button alt">更多</a></li>
+				</ul>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</section>
+
+
+<!-- Scripts -->
+<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/skel.min.js"></script>
+<script src="{{ STATIC_URL }}js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="{{ STATIC_URL }}js/main.js"></script>
+<script src="{{ STATIC_URL }}js/main.js"></script>
+{% endblock %}
