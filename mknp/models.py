@@ -13,13 +13,13 @@ class HomePage(models.Model):
 	)
 
 	URL_CHOICES = (
-		('university', 'university'),
-		('applyinfo/研究生申请', 'applyinfo/研究生申请'),
+		('applyinfo', 'applyinfo'),
+		('serviceinfo', 'serviceinfo'),
 	)
 	title = models.CharField(max_length = 250)
 	desc = models.CharField(max_length = 250)
 	icon = models.CharField(max_length = 60, choices=ICON_CHOICES, default='fa-clone')
-	directUrl = models.CharField(max_length = 100, choices=URL_CHOICES, default='university')
+	directUrl = models.CharField(max_length = 100, choices=URL_CHOICES, default='applyinfo')
 	def __str__(self):
 		return self.title
 
@@ -180,4 +180,37 @@ class ApplyInfo(models.Model):
 	
 	def __str__(self):
 		return self.tag
+		
+
+class ServiceInfo(models.Model):
+	tag = models.CharField(max_length = 150, unique=True)
+	title = models.CharField(max_length = 500)
+	label = models.TextField(blank=True)
+	feature1 = models.CharField(max_length = 300,blank=True)
+	feature2 = models.CharField(max_length = 300,blank=True)
+	feature3 = models.CharField(max_length = 300,blank=True)
+	feature4 = models.CharField(max_length = 300,blank=True)
+	feature5 = models.CharField(max_length = 300,blank=True)
+	item1_title = models.CharField(max_length = 150)
+	item1_image = models.ImageField(upload_to = 'images')
+	item1_desc = models.CharField(max_length = 500)
+	item2_title = models.CharField(max_length = 150)
+	item2_image = models.ImageField(upload_to = 'images')
+	item2_desc = models.CharField(max_length = 500)
+	item3_title = models.CharField(max_length = 150,blank=True)
+	item3_image = models.ImageField(upload_to = 'images',blank=True)
+	item3_desc = models.CharField(max_length = 500,blank=True)
+	item4_title = models.CharField(max_length = 150,blank=True)
+	item4_image = models.ImageField(upload_to = 'images',blank=True)
+	item4_desc = models.CharField(max_length = 500,blank=True)
+	item5_title = models.CharField(max_length = 150,blank=True)
+	item5_image = models.ImageField(upload_to = 'images',blank=True)
+	item5_desc = models.CharField(max_length = 500,blank=True)
+	item6_title = models.CharField(max_length = 150,blank=True)
+	item6_image = models.ImageField(upload_to = 'images',blank=True)
+	item6_desc = models.CharField(max_length = 500,blank=True)
+	
+	def __str__(self):
+		return self.tag
+
 
