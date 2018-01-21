@@ -15,6 +15,9 @@ class HomePage(models.Model):
 	URL_CHOICES = (
 		('university', 'university'),
 	)
+	URL_CHOICES = (
+		('applyinfo/研究生申请', 'applyinfo/研究生申请'),
+	)
 	title = models.CharField(max_length = 250)
 	desc = models.CharField(max_length = 250)
 	icon = models.CharField(max_length = 60, choices=ICON_CHOICES, default='fa-clone')
@@ -111,11 +114,11 @@ class SubPagesInfo(models.Model):
 class University(models.Model):
 	label = models.CharField(max_length = 250)
 	labelName = models.CharField(max_length = 250)
-	image = models.FileField(upload_to = 'images')
+	image = models.ImageField(upload_to = 'images')
 	title = models.CharField(max_length = 250)
 	label = models.CharField(max_length = 250, blank=True)
 	detail_title = models.CharField(max_length = 250)
-	detail_image = models.FileField(upload_to = 'images', default='images/university_detail_default.jpg')
+	detail_image = models.ImageField(upload_to = 'images', default='images/university_detail_default.jpg')
 	detail_desc1  = models.TextField(blank=True)
 	detail_desc2  = models.TextField(blank=True)
 
@@ -129,7 +132,7 @@ class University(models.Model):
 
 class CompanyInfo(models.Model):
 	title = models.CharField(max_length = 500)
-	image = models.FileField(upload_to = 'images')
+	image = models.ImageField(upload_to = 'images')
 	desc1  = models.TextField(blank=True)
 	desc2  = models.TextField(blank=True)
 	desc3  = models.TextField(blank=True)
@@ -137,4 +140,42 @@ class CompanyInfo(models.Model):
 	desc5  = models.TextField(blank=True)
 	def __str__(self):
 		return self.title
+		
+class ApplyInfo(models.Model):
+	PAGE_CHOICES = (
+		('研究生申请', '研究生申请'),
+	)
+	tag = models.CharField(max_length = 150, unique=True, default='研究生申请')
+	title = models.CharField(max_length = 500)
+	label = models.CharField(max_length = 500,blank=True)
+	slide_img1  = models.ImageField(upload_to = 'images')
+	slide_img2  = models.ImageField(upload_to = 'images')
+	slide_img3  = models.ImageField(upload_to = 'images')
+	feature1_title = models.CharField(max_length = 150)
+	feature1_desc = models.CharField(max_length = 500)
+	feature2_title = models.CharField(max_length = 150)
+	feature2_desc = models.CharField(max_length = 500)
+	feature3_title = models.CharField(max_length = 150)
+	feature3_desc = models.CharField(max_length = 500)
+	step1_title = models.CharField(max_length = 150)
+	step1_image = models.ImageField(upload_to = 'images')
+	step1_desc = models.CharField(max_length = 500)
+	step2_title = models.CharField(max_length = 150)
+	step2_image = models.ImageField(upload_to = 'images')
+	step2_desc = models.CharField(max_length = 500)
+	step3_title = models.CharField(max_length = 150,blank=True)
+	step3_image = models.ImageField(upload_to = 'images',blank=True)
+	step3_desc = models.CharField(max_length = 500,blank=True)
+	step4_title = models.CharField(max_length = 150,blank=True)
+	step4_image = models.ImageField(upload_to = 'images',blank=True)
+	step4_desc = models.CharField(max_length = 500,blank=True)
+	step5_title = models.CharField(max_length = 150,blank=True)
+	step5_image = models.ImageField(upload_to = 'images',blank=True)
+	step5_desc = models.CharField(max_length = 500,blank=True)
+	step6_title = models.CharField(max_length = 150,blank=True)
+	step6_image = models.ImageField(upload_to = 'images',blank=True)
+	step6_desc = models.CharField(max_length = 500,blank=True)
+	
+	def __str__(self):
+		return self.tag
 

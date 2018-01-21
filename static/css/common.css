@@ -12,16 +12,6 @@ body {
     font-family: 'ralewayregular';
 }
 
-p {
-    margin: 0 0 15px;
-
-}
-
-p {
-    line-height: 2rem;
-    font-size: 0.875rem;
-}
-
 /* navbar section */
 .menu-scroll {
     padding-top: 0px;

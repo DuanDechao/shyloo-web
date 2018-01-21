@@ -9,6 +9,7 @@ from .models import PagesInfo
 from .models import University
 from .models import SubPagesInfo
 from .models import CompanyInfo
+from .models import ApplyInfo
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -50,3 +51,7 @@ admin.site.register(University, UniversityAdmin)
 class CompanyInfoAdmin(admin.ModelAdmin):
 	list_display = ('title', 'image')
 admin.site.register(CompanyInfo, CompanyInfoAdmin)
+
+class ApplyInfoAdmin(admin.ModelAdmin):
+	list_display = ('tag', 'title')
+admin.site.register(ApplyInfo, ApplyInfoAdmin)

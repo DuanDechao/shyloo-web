@@ -1,0 +1,132 @@
+{% extends "mknp/base.html" %}
+
+{% block title %}关于我们{% endblock %}
+{% block head %}
+<link href="{{ STATIC_URL }}css/style2.css" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block body %}
+        <section class="caption">
+            <div class="wrap">
+                <h1>{{ applyInfo.title }}<br>{{ applyInfo.label }}</h1>
+            </div><!-- wrap -->
+        </section><!-- caption -->
+        <section class="slider">
+            <div class="wrap">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ MEDIA_URL }}{{ applyInfo.slide_img1 }}" width="940" height="360" alt="">
+                        </div><!-- swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{{ MEDIA_URL }}{{ applyInfo.slide_img2 }}" width="940" height="360" alt="">
+                        </div><!-- swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{{ MEDIA_URL }}{{ applyInfo.slide_img3 }}" width="940" height="360" alt="">
+                        </div><!-- swiper-slide -->
+                    </div>
+                    <div class="swiper-pagination-wrapper">
+                        <div class="swiper-pagination"></div>
+                    </div><!-- /swiper-pagination-wrapper -->
+                </div>
+            </div><!-- wrap -->
+        </section><!-- slider -->
+        <section class="features">
+            <div class="wrap">
+                <div class="features-columns clearfix">
+                    <div class="features-column">
+                        <span class="ico-bulb"></span>
+                        <h3>{{ applyInfo.feature1_title }}</h3>
+                        <p>{{ applyInfo.feature1_desc }}</p>
+                    </div><!-- features-column -->
+                    <div class="features-column">
+                        <span class="ico-rocket"></span>
+                        <h3>{{ applyInfo.feature2_title }}</h3>
+                        <p>{{ applyInfo.feature2_desc }}</p>
+                    </div><!-- features-column -->
+                    <div class="features-column">
+                        <span class="ico-flag"></span>
+                        <h3>{{ applyInfo.feature3_title }}</h3>
+                        <p>{{ applyInfo.feature3_desc }}</p>
+                    </div><!-- features-column -->
+                </div><!-- features-columns -->
+                <div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- features -->
+		
+		{% if applyInfo.step1_title != "" %}
+        <section class="textblock">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step1_image }}" width="320" height="280" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step1_title }}</h2>
+                    <p>{{ applyInfo.step1_desc }}</p>
+                </div><!-- text-column -->
+                <div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+		{% if applyInfo.step2_title != "" %}
+		<section class="textblock textblock-last">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step2_image }}" width="320" height="280" class="align-right" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step2_title }}</h2>
+                    <p>{{ applyInfo.step2_title }}</p>
+                </div><!-- text-column -->
+				<div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+		{% if applyInfo.step3_title != "" %}
+		<section class="textblock">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step3_image }}" width="320" height="280" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step3_title }}</h2>
+                    <p>{{ applyInfo.step3_desc }}</p>
+                </div><!-- text-column -->
+                <div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+		{% if applyInfo.step4_title != "" %}
+		<section class="textblock textblock-last">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step4_image }}" width="320" height="280" class="align-right" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step4_title }}</h2>
+                    <p>{{ applyInfo.step4_title }}</p>
+                </div><!-- text-column -->
+				<div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+		{% if applyInfo.step5_title != "" %}
+        <section class="textblock">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step5_image }}" width="320" height="280" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step5_title }}</h2>
+                    <p>{{ applyInfo.step5_desc }}</p>
+                </div><!-- text-column -->
+                <div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+		{% if applyInfo.step6_title != "" %}
+		<section class="textblock textblock-last">
+            <div class="wrap">
+                <img src="{{ MEDIA_URL }}{{ applyInfo.step6_image }}" width="320" height="280" class="align-right" alt="">
+                <div class="text-column">
+                    <h2>{{ applyInfo.step6_title }}</h2>
+                    <p>{{ applyInfo.step6_title }}</p>
+                </div><!-- text-column -->
+				<div class="separator"></div>
+            </div><!-- wrap -->
+        </section><!-- textblock -->
+		{% endif %}
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/library.js"></script>
+    <script src="{{ STATIC_URL }}js/script.js"></script>
+    <script src="{{ STATIC_URL }}js/retina.js"></script>
+{% endblock %}

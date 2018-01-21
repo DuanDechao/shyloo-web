@@ -179,6 +179,16 @@ h6 {
     margin-bottom: .9rem;
 }*/
 
+p {
+    margin: 0 0 15px;
+
+}
+
+p {
+    line-height: 2rem;
+    font-size: 0.875rem;
+}
+
 .title-Strong {
 	font-size:40px;
 	font-weight:700;

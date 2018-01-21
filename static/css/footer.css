@@ -37,6 +37,9 @@
     line-height: 25px;
     max-width: 100%;
     padding-top: 15px;
+	margin: 0 0 15px;
+	line-height: 2rem;
+    font-size: 0.875rem;
 }
 .copyright_text p i{
     padding:0px 10px;
