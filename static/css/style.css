@@ -556,6 +556,12 @@ input::-ms-input-placeholder {
     height: 75px;
 
 }
+
+.menu-static {
+	height: 75px;
+    background-color:rgba(34, 61, 97, 0.64);
+}
+
 .main_menu_bg{
     margin-top: 0px;
     background-color: transparent;
