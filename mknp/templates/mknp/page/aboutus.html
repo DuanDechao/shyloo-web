@@ -27,11 +27,11 @@
 				  <img src="{{ MEDIA_URL }}{{ companyinfo.image }}" alt="" />
 			</div>
 			<div class="det_text">
-				<p class="para">{{ companyinfo.desc1 }}</p>
-				<p class="para">{{ companyinfo.desc2 }}</p>
-				<p class="para">{{ companyinfo.desc3 }}</p>
-				<p class="para">{{ companyinfo.desc4 }}</p>
-				<p class="para">{{ companyinfo.desc5 }}</p>
+				<p class="para">{{ companyinfo.desc1|safe }}</p>
+				<p class="para">{{ companyinfo.desc2|safe }}</p>
+				<p class="para">{{ companyinfo.desc3|safe }}</p>
+				<p class="para">{{ companyinfo.desc4|safe }}</p>
+				<p class="para">{{ companyinfo.desc5|safe }}</p>
 			</div>
 			<div class="clear"></div>
 		</div>
