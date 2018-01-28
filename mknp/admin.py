@@ -11,6 +11,9 @@ from .models import SubPagesInfo
 from .models import CompanyInfo
 from .models import ApplyInfo
 from .models import ServiceInfo
+from .models import LanUniversity
+from .models import HighSchool
+from .models import ProUniversity
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -60,3 +63,15 @@ admin.site.register(ApplyInfo, ApplyInfoAdmin)
 class ServiceInfoAdmin(admin.ModelAdmin):
 	list_display = ('tag', 'title')
 admin.site.register(ServiceInfo, ServiceInfoAdmin)
+
+class LanUniversityAdmin(admin.ModelAdmin):
+	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
+admin.site.register(LanUniversity, LanUniversityAdmin)
+
+class HighSchoolAdmin(admin.ModelAdmin):
+	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
+admin.site.register(HighSchool, HighSchoolAdmin)
+
+class ProUniversityAdmin(admin.ModelAdmin):
+	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
+admin.site.register(ProUniversity, ProUniversityAdmin)

@@ -13,6 +13,9 @@ from .models import SubPagesInfo
 from .models import CompanyInfo
 from .models import ApplyInfo
 from .models import ServiceInfo
+from .models import LanUniversity
+from .models import HighSchool
+from .models import ProUniversity
 
 # Create your views here.
 
@@ -41,6 +44,27 @@ def home_page(request):
 		
 def university(request):
 	universitys = University.objects.all()
+	universityTypes = {}
+	for university in universitys:
+		universityTypes[university.label] = university.labelName
+	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	
+def lanuniversity(request):
+	universitys = LanUniversity.objects.all()
+	universityTypes = {}
+	for university in universitys:
+		universityTypes[university.label] = university.labelName
+	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	
+def highschool(request):
+	universitys = HighSchool.objects.all()
+	universityTypes = {}
+	for university in universitys:
+		universityTypes[university.label] = university.labelName
+	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	
+def prouniversity(request):
+	universitys = ProUniversity.objects.all()
 	universityTypes = {}
 	for university in universitys:
 		universityTypes[university.label] = university.labelName
