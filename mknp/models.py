@@ -95,8 +95,8 @@ class PagesInfo(models.Model):
 	)
 	pageIdx = models.CharField(max_length = 10, choices=PAGE_CHOICES, default='page1')
 	tag = models.CharField(max_length = 100, default='1')
-	title = models.CharField(max_length = 250)
-	label = models.CharField(max_length = 250)
+	title = models.CharField(max_length = 250, blank=True)
+	label = models.CharField(max_length = 250, blank=True)
 	image = models.ImageField(upload_to = 'images', blank=True)
 
 	def __str__(self):

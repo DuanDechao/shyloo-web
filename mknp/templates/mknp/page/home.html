@@ -33,7 +33,7 @@
 {% endblock %}
 
 {% block body %}
-    <header id="main_menu" class="header navbar-fixed-top">            
+    <header id="main_menu" class="header menu-static navbar-fixed-top">            
         <div class="main_menu_bg">
             <div class="container">
                 <div class="row">
@@ -60,12 +60,12 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/mknp">首页</a></li>
-                                        <li><a href="/mknp/aboutus">关于我们</a></li>
-                                        <li><a href="#team">赴日留学</a></li>
-                                        <li><a href="#clogo">精品课程</a></li>
-                                        <li><a href="#blog">修士进学</a></li>
-                                        <li><a href="#service">合作项目</a></li>
+                                        <li><a href="#home">{{ Pages1Info.tag }}</a></li>
+                                        <li><a href="#fh5co-work">{{ Pages2Info.tag }}</a></li>
+                                        <li><a href="#team">{{ Pages3Info.tag }}</a></li>
+                                        <li><a href="#clogo">{{ Pages4Info.tag }}</a></li>
+                                        <li><a href="#portfolio">{{ Pages5Info.tag }}</a></li>
+                                        <li><a href="#news">{{ Pages6Info.tag }}</a></li>
                                     </ul>
 
 
@@ -149,50 +149,37 @@
         </section><!--End of feature Section -->
         <hr />
 
-    	<section id="portfolio" class="portfolio sections">
-            <div class="container-fluid">
+    	<!-- Blog Section -->
+        <section id="fh5co-work" data-section="work" style="background-image: url(../../media/{{ Pages2Info.image }});">
+            <div class="container">
                 <div class="row">
-                    <div class="main_portfolio">
-                        <div class="col-sm-12">
-                            <div class="head_title text-center">
-                                <h2>{{ Pages2Info.title }}</h2>
-                                <div class="subtitle">
-                                    {{ Pages2Info.label }}
-                                </div>
-                                <div class="separator"></div>
+                    <div class="main_work sections text-center">
+                        <div class="head_title text-center">
+                            <h2>{{ Pages2Info.title }}</h2>
+                            <div class="subtitle">
+                                {{ Pages2Info.label }}
                             </div>
-                        </div>
-                        <div class="work_menu text-center">
-                            <div id="filters" class="toolbar mb2 mt2">
-                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>
-                                {% for key,value in activityPageTypes.items %}
-                                /<button class="btn-md fil-cat filter" data-rel="{{ key }}" data-filter=".{{ key }}">{{ value }}</button>
-                                {% endfor %}
-                            </div> 
-
-                        </div>
-
-                        <div style="clear:both;"></div>     
-                        <div id="portfoliowork">
-                            {% for activityPage in activityPages %}
-                            <div class="single_portfolio tile scale-anm {{ activityPage.label }}">
-                                <img src="{{ MEDIA_URL }}{{ activityPage.image }}" alt="" />
-                                <a href="{{ MEDIA_URL }}{{ activityPage.image }}" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <h4>{{ activityPage.title }}</h4>
-										<!--<div class="separator4"></div>-->
-                                        <p>{{ activityPage.desc }}</p>
+                            <div class="separator"></div>
+                        </div><!-- End off Head_title -->
+                        
+                        <div class="row row-bottom-padded-sm">
+                            {% for projectPage in projectPages %}
+                            <div class="col-md-3 col-sm-6 col-xxs-12">
+                                <a href="{{ projectPage.directUrl }}" class="fh5co-project-item image-popup to-animate">
+                                    <img src="{{ MEDIA_URL }}{{ projectPage.image }}" alt="Image" class="img-responsive">
+                                    <div class="fh5co-text">
+                                    <h2>{{ projectPage.title }}</h2>
+                                    <span>{{ projectPage.desc }}</span>
                                     </div>
                                 </a>
                             </div>
                             {% endfor %}
+                            
                         </div>
-
-                        <div style="clear:both;"></div>  
                     </div>
                 </div>
-            </div><!-- End off container --> 
-        </section> <!-- End off Work Section -->
+            </div>
+        </section>
 		
     	 <!-- Team Section -->
         <section id="team" style="background-image: url(../../media/{{ Pages3Info.image }});">
@@ -272,38 +259,51 @@
             <div class="divider"></div>
         </section><!-- End off clogo Section -->
 
-
-        <!-- Blog Section -->
-        <section id="fh5co-work" data-section="work" style="background-image: url(../../media/{{ Pages5Info.image }});">
-            <div class="container">
+		<section id="portfolio" class="portfolio sections">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="main_work sections text-center">
-                        <div class="head_title text-center">
-                            <h2>{{ Pages5Info.title }}</h2>
-                            <div class="subtitle">
-                                {{ Pages5Info.label }}
+                    <div class="main_portfolio">
+                        <div class="col-sm-12">
+                            <div class="head_title text-center">
+                                <h2>{{ Pages5Info.title }}</h2>
+                                <div class="subtitle">
+                                    {{ Pages5Info.label }}
+                                </div>
+                                <div class="separator"></div>
                             </div>
-                            <div class="separator"></div>
-                        </div><!-- End off Head_title -->
-                        
-                        <div class="row row-bottom-padded-sm">
-                            {% for projectPage in projectPages %}
-                            <div class="col-md-3 col-sm-6 col-xxs-12">
-                                <a href="{{ projectPage.directUrl }}" class="fh5co-project-item image-popup to-animate">
-                                    <img src="{{ MEDIA_URL }}{{ projectPage.image }}" alt="Image" class="img-responsive">
-                                    <div class="fh5co-text">
-                                    <h2>{{ projectPage.title }}</h2>
-                                    <span>{{ projectPage.desc }}</span>
+                        </div>
+                        <div class="work_menu text-center">
+                            <div id="filters" class="toolbar mb2 mt2">
+                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>
+                                {% for key,value in activityPageTypes.items %}
+                                /<button class="btn-md fil-cat filter" data-rel="{{ key }}" data-filter=".{{ key }}">{{ value }}</button>
+                                {% endfor %}
+                            </div> 
+
+                        </div>
+
+                        <div style="clear:both;"></div>     
+                        <div id="portfoliowork">
+                            {% for activityPage in activityPages %}
+                            <div class="single_portfolio tile scale-anm {{ activityPage.label }}">
+                                <img src="{{ MEDIA_URL }}{{ activityPage.image }}" alt="" />
+                                <a href="{{ MEDIA_URL }}{{ activityPage.image }}" class="portfolio-img">
+                                    <div class="grid_item_overlay">
+                                        <h4>{{ activityPage.title }}</h4>
+										<!--<div class="separator4"></div>-->
+                                        <p>{{ activityPage.desc }}</p>
                                     </div>
                                 </a>
                             </div>
                             {% endfor %}
-                            
                         </div>
+
+                        <div style="clear:both;"></div>  
                     </div>
                 </div>
-            </div>
-        </section>
+            </div><!-- End off container --> 
+        </section> <!-- End off Work Section -->
+		
         <hr />
 
         <section id="news">
