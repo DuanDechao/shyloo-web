@@ -25,14 +25,14 @@
 			     	</div>
 			       <div class="cont-grid">
 					       	<h4>{{ university.detail_title }}</h4>
-					       	<p class="para">{{ university.detail_desc1 }}</p>
-					       	<p class="para">{{ university.detail_desc2 }}</p>
+					       	<p class="para">{{ university.detail_desc1|safe }}</p>
+					       	<p class="para">{{ university.detail_desc2|safe }}</p>
 			      	</div>
 			      	<div class="clear"></div>
 			    	<div class="about-p">
-				    	<p class="para">{{ university.detail_desc3 }} </p>
-						<p class="para">{{ university.detail_desc4 }}</p>
-						<p class="para">{{ university.detail_desc5 }}</p>
+				    	<p class="para">{{ university.detail_desc3|safe }} </p>
+						<p class="para">{{ university.detail_desc4|safe }}</p>
+						<p class="para">{{ university.detail_desc5|safe }}</p>
 					</div>
 			</div>
 			<!-- end about -->
