@@ -5,8 +5,7 @@
 <link href="{{ STATIC_URL }}css/style1.css" rel="stylesheet" type="text/css" media="all" />
 {% endblock %}
 {% block body %}
-<!-- start slider -->
-<div class="slider_bg" style="background: url(../../../media/{{ pageInfo.bg }}); background-size:100%;">
+<div class="slider_bg" style="background: url(../../media/{{ pageInfo.bg }}); background-size:100%;">
 <div class="wrap">
 	<div class="slider">
 		<h2>{{ pageInfo.title }}</h2>
@@ -19,20 +18,25 @@
 <div class="wrap">
 	<div class="main">
 		<div class="content">
-		<!-- start details -->
-			<div class="details">
-			<h2>{{ university.detail_title }}</h2>
-			<div class="det_pic">
-				  <img src="{{ MEDIA_URL }}{{ university.detail_image }}" alt="" />
+			<!-- start about -->
+			<div class="about">
+					 <div class="cont-grid-img img_style">
+			     		<img src="{{ MEDIA_URL }}{{ university.image }}" alt="">
+			     	</div>
+			       <div class="cont-grid">
+					       	<h4>{{ university.detail_title }}</h4>
+					       	<p class="para">{{ university.detail_desc1 }}</p>
+					       	<p class="para">{{ university.detail_desc2 }}</p>
+			      	</div>
+			      	<div class="clear"></div>
+			    	<div class="about-p">
+				    	<p class="para">{{ university.detail_desc3 }} </p>
+						<p class="para">{{ university.detail_desc4 }}</p>
+						<p class="para">{{ university.detail_desc5 }}</p>
+					</div>
 			</div>
-			<div class="det_text">
-				<p class="para">{{ university.detail_desc1 }}</p>
-				<p class="para">{{ university.detail_desc2 }}</p>
-			</div>
-			<div class="clear"></div>
+			<!-- end about -->
 		</div>
-		<!-- end details -->
-	 </div>
 	</div>
 </div>
 </div>

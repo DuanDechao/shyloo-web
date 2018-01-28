@@ -59,6 +59,9 @@ class ProjectPage(models.Model):
 	)
 	URL_CHOICES = (
 		('university', 'university'),
+		('lanuniversity', 'lanuniversity'),
+		('highschool', 'highschool'),
+		('prouniversity', 'prouniversity'),
 	)
 	image = models.ImageField(upload_to = 'images')
 	title = models.CharField(max_length = 250)
@@ -123,6 +126,77 @@ class University(models.Model):
 	detail_image = models.ImageField(upload_to = 'images', default='images/university_detail_default.jpg')
 	detail_desc1  = models.TextField(blank=True)
 	detail_desc2  = models.TextField(blank=True)
+	detail_desc3  = models.TextField(blank=True)
+	detail_desc4  = models.TextField(blank=True)
+	detail_desc5  = models.TextField(blank=True)
+	
+
+	def get_absolute_url(self):
+		return reverse('mknp:university_detail',
+                        args=[self.title
+                       ])
+
+	def __str__(self):
+		return self.title
+		
+class LanUniversity(models.Model):
+	label = models.CharField(max_length = 250)
+	labelName = models.CharField(max_length = 250)
+	image = models.ImageField(upload_to = 'images')
+	title = models.CharField(max_length = 250)
+	label = models.CharField(max_length = 250, blank=True)
+	detail_title = models.CharField(max_length = 250)
+	detail_image = models.ImageField(upload_to = 'images', default='images/university_detail_default.jpg')
+	detail_desc1  = models.TextField(blank=True)
+	detail_desc2  = models.TextField(blank=True)
+	detail_desc3  = models.TextField(blank=True)
+	detail_desc4  = models.TextField(blank=True)
+	detail_desc5  = models.TextField(blank=True)
+
+	def get_absolute_url(self):
+		return reverse('mknp:university_detail',
+                        args=[self.title
+                       ])
+
+	def __str__(self):
+		return self.title
+		
+class HighSchool(models.Model):
+	label = models.CharField(max_length = 250)
+	labelName = models.CharField(max_length = 250)
+	image = models.ImageField(upload_to = 'images')
+	title = models.CharField(max_length = 250)
+	label = models.CharField(max_length = 250, blank=True)
+	detail_title = models.CharField(max_length = 250)
+	detail_image = models.ImageField(upload_to = 'images', default='images/university_detail_default.jpg')
+	detail_desc1  = models.TextField(blank=True)
+	detail_desc2  = models.TextField(blank=True)
+	detail_desc3  = models.TextField(blank=True)
+	detail_desc4  = models.TextField(blank=True)
+	detail_desc5  = models.TextField(blank=True)
+
+	def get_absolute_url(self):
+		return reverse('mknp:university_detail',
+                        args=[self.title
+                       ])
+
+	def __str__(self):
+		return self.title
+		
+		
+class ProUniversity(models.Model):
+	label = models.CharField(max_length = 250)
+	labelName = models.CharField(max_length = 250)
+	image = models.ImageField(upload_to = 'images')
+	title = models.CharField(max_length = 250)
+	label = models.CharField(max_length = 250, blank=True)
+	detail_title = models.CharField(max_length = 250)
+	detail_image = models.ImageField(upload_to = 'images', default='images/university_detail_default.jpg')
+	detail_desc1  = models.TextField(blank=True)
+	detail_desc2  = models.TextField(blank=True)
+	detail_desc3  = models.TextField(blank=True)
+	detail_desc4  = models.TextField(blank=True)
+	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
 		return reverse('mknp:university_detail',
