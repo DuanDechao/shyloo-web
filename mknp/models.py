@@ -160,7 +160,7 @@ class LanUniversity(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:lanuniversity_detail',
                         args=[self.title
                        ])
 
@@ -182,7 +182,7 @@ class HighSchool(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:highschool_detail',
                         args=[self.title
                        ])
 
@@ -205,7 +205,7 @@ class ProUniversity(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:prouniversity_detail',
                         args=[self.title
                        ])
 
