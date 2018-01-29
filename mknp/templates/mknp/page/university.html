@@ -73,12 +73,12 @@ $(function () {
 {% endblock %}
 
 {% block body %}
-<div class="header_bg">
+<div class="header_bg" style="background: url(../../../media/{{ pageInfo.bg }}); background-size:100%;">
 <div class="wrap">
 	<div class="header_btm">
 		<div class="h_left">
-			<h2>日本著名学校详细信息</h2>
-			<h3>你要的都在这里</h3>
+			<h2>{{ pageInfo.title }}</h2>
+			<h3>{{ pageInfo.label }}</h3>
 		</div>
 		<div class="clear"></div>
 	</div>
