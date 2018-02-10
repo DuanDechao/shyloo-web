@@ -105,7 +105,13 @@ class PagesInfo(models.Model):
 class SubPagesInfo(models.Model):
 	PAGE_CHOICES = (
 		('university_list', 'university_list'),
+		('lanuniversity_list', 'lanuniversity_list'),
+		('highschool_list', 'highschool_list'),
+		('prouniversity_list', 'prouniversity_list'),
 		('university_detail', 'university_detail'),
+		('lanuniversity_detail', 'lanuniversity_detail'),
+		('highschool_detail', 'highschool_detail'),
+		('prouniversity_detail', 'prouniversity_detail'),
 		('aboutus', 'aboutus'),
 	)
 	pageIdx = models.CharField(max_length = 30, choices=PAGE_CHOICES, default='page1', unique=True)
@@ -154,7 +160,7 @@ class LanUniversity(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:lanuniversity_detail',
                         args=[self.title
                        ])
 
@@ -176,7 +182,7 @@ class HighSchool(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:highschool_detail',
                         args=[self.title
                        ])
 
@@ -199,7 +205,7 @@ class ProUniversity(models.Model):
 	detail_desc5  = models.TextField(blank=True)
 
 	def get_absolute_url(self):
-		return reverse('mknp:university_detail',
+		return reverse('mknp:prouniversity_detail',
                         args=[self.title
                        ])
 

@@ -47,32 +47,51 @@ def university(request):
 	universityTypes = {}
 	for university in universitys:
 		universityTypes[university.label] = university.labelName
-	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='university_list')[0]
+	return render_to_response('mknp/page/university.html', {'pageInfo':pageInfo, 'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
 	
 def lanuniversity(request):
 	universitys = LanUniversity.objects.all()
 	universityTypes = {}
 	for university in universitys:
 		universityTypes[university.label] = university.labelName
-	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='lanuniversity_list')[0]
+	return render_to_response('mknp/page/university.html', {'pageInfo': pageInfo, 'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
 	
 def highschool(request):
 	universitys = HighSchool.objects.all()
 	universityTypes = {}
 	for university in universitys:
 		universityTypes[university.label] = university.labelName
-	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='highschool_list')[0]
+	return render_to_response('mknp/page/university.html', {'pageInfo': pageInfo, 'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
 	
 def prouniversity(request):
 	universitys = ProUniversity.objects.all()
 	universityTypes = {}
 	for university in universitys:
 		universityTypes[university.label] = university.labelName
-	return render_to_response('mknp/page/university.html', {'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='prouniversity_list')[0]
+	return render_to_response('mknp/page/university.html', {'pageInfo': pageInfo, 'universityTypes':universityTypes, 'universitys':universitys}, RequestContext(request))
 
 def university_detail(request, name):
 	pageInfo = SubPagesInfo.objects.filter(pageIdx='university_detail')[0]
 	university = get_object_or_404(University, title=name)
+	return render_to_response('mknp/page/university_detail.html', {'pageInfo':pageInfo, 'university':university}, RequestContext(request))
+	
+def lanuniversity_detail(request, name):
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='lanuniversity_detail')[0]
+	university = get_object_or_404(LanUniversity, title=name)
+	return render_to_response('mknp/page/university_detail.html', {'pageInfo':pageInfo, 'university':university}, RequestContext(request))
+	
+def highschool_detail(request, name):
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='highschool_detail')[0]
+	university = get_object_or_404(HighSchool, title=name)
+	return render_to_response('mknp/page/university_detail.html', {'pageInfo':pageInfo, 'university':university}, RequestContext(request))
+	
+def prouniversity_detail(request, name):
+	pageInfo = SubPagesInfo.objects.filter(pageIdx='prouniversity_detail')[0]
+	university = get_object_or_404(ProUniversity, title=name)
 	return render_to_response('mknp/page/university_detail.html', {'pageInfo':pageInfo, 'university':university}, RequestContext(request))
 
 def aboutus(request):
