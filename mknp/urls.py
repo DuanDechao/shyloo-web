@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^aboutus/$',views.aboutus,name='aboutus'),
 	url(r'^applyinfo/(?P<tagName>[-\w]+)/$',views.applyinfo,name='applyinfo'),
 	url(r'^serviceinfo/(?P<tagName>[-\w]+)/$',views.serviceinfo,name='serviceinfo'),
+	url(r'^teacher/$',views.teacherinfo,name='teacherinfo'),
 ]

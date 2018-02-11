@@ -106,3 +106,6 @@ def applyinfo(request, tagName):
 def serviceinfo(request, tagName):
 	serviceInfo = get_object_or_404(ServiceInfo, tag=tagName)
 	return render_to_response('mknp/page/items.html', {'serviceInfo':serviceInfo}, RequestContext(request))
+	
+def teacherinfo(request):
+	return render_to_response('mknp/page/teacher.html', {}, RequestContext(request))
