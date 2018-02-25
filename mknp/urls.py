@@ -13,5 +13,6 @@ urlpatterns = [
 	url(r'^aboutus/$',views.aboutus,name='aboutus'),
 	url(r'^applyinfo/(?P<tagName>[-\w]+)/$',views.applyinfo,name='applyinfo'),
 	url(r'^serviceinfo/(?P<tagName>[-\w]+)/$',views.serviceinfo,name='serviceinfo'),
+	url(r'^case/(?P<year>\d{4})/(?P<month>/d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$',views.case_detail,name='case_detail'),
 	url(r'^teacher/$',views.teacherinfo,name='teacherinfo'),
 ]

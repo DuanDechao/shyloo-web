@@ -2,6 +2,7 @@ from django.db import models
 #from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.utils import timezone
 # Create your models here.
 
 class HomePage(models.Model):
@@ -293,4 +294,32 @@ class ServiceInfo(models.Model):
 	def __str__(self):
 		return self.tag
 
-
+class Case(models.Model):
+	title = models.CharField(max_length = 200)
+	view = models.CharField(max_length=100, default ="1")
+	content1 = models.TextField(blank=True)
+	img1 = models.ImageField(upload_to = 'images',blank=True)
+	content2 = models.TextField(blank=True)
+	img2 = models.ImageField(upload_to = 'images',blank=True)
+	content3 = models.TextField(blank=True)
+	img3 = models.ImageField(upload_to = 'images',blank=True)
+	content4 = models.TextField(blank=True)
+	img4 = models.ImageField(upload_to = 'images',blank=True)
+	content5 = models.TextField(blank=True)
+	img5 = models.ImageField(upload_to = 'images',blank=True)
+	time = models.DateTimeField(default = timezone.now)
+	slug = models.SlugField(max_length=250, unique_for_date='time')
+	teacher = models.CharField(max_length = 150)
+	
+	class Meta:
+		ordering = ('-time',)
+		
+	def __str__(self):
+		return self.title
+		
+	def get_absolute_url(self):
+		return reverse('mknp:case',
+						args = [self.time.year,
+								self.time.strftime('%m'),
+								self.time.strftime('%d'),
+								self.time.slug])

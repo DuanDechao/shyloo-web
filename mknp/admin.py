@@ -14,6 +14,7 @@ from .models import ServiceInfo
 from .models import LanUniversity
 from .models import HighSchool
 from .models import ProUniversity
+from .models import Case
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -75,3 +76,7 @@ admin.site.register(HighSchool, HighSchoolAdmin)
 class ProUniversityAdmin(admin.ModelAdmin):
 	list_display = ('label', 'labelName', 'image', 'title', 'label', 'detail_title', 'detail_image')
 admin.site.register(ProUniversity, ProUniversityAdmin)
+
+class CaseAdmin(admin.ModelAdmin):
+	list_display = ('title', 'slug', 'teacher', 'time')
+admin.site.register(Case, CaseAdmin)

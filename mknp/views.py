@@ -109,3 +109,10 @@ def serviceinfo(request, tagName):
 	
 def teacherinfo(request):
 	return render_to_response('mknp/page/teacher.html', {}, RequestContext(request))
+	
+def case_detail(request, year, month, day, post):
+	case = get_object_or_404(Case, slug = post,
+									time__year = year,
+									time__month = month,
+									time__day = day)
+	return render(request, 'mknp/page/case.html', {'case':case}, RequestContext(request))
