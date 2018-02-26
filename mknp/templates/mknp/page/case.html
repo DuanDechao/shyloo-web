@@ -1,0 +1,48 @@
+{% extends "mknp/base.html" %}
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/case/style.css" type="text/css">
+{% endblock %}
+{% block body %}
+<div class="hr-detail-bd g-w1240 clearfix" style="background:transparent;">
+	<div class="hr-detail-alxq">
+		<div class="hd">
+			<div class="title clearfix">
+				<h2 class="name">{{ case.title }}</h2>
+				<span class="time">{{ case.time|date:"Y-m-d" }}</span>
+				<span class="look">{{ case.view }}</span>
+				
+			</div>
+		</div>
+		<div class="bd">
+			<div class="text">
+				<p></p><p><span style="font-size: 18px;"><br></span></p><p><span style="font-size: 18px;">{{ case.content1|safe }}</span></p>
+				<p><br></p>
+				{% if case.img1 %}
+				<p style="text-align: center;"></p><p><img src="{{ MEDIA_URL }}{{ case.img1 }}" style="max-width:100%;"><br></p><p><br></p><p></p>
+				{% endif %}
+				<p></p><p><span style="font-size: 18px;"><br></span></p><p><span style="font-size: 18px;">{{ case.content2|safe }}</span></p>
+				<p><br></p>
+				{% if case.img2 %}
+				<p style="text-align: center;"></p><p><img src="{{ MEDIA_URL }}{{ case.img2 }}" style="max-width:100%;"><br></p><p><br></p><p></p>
+				{% endif %}
+				<p></p><p><span style="font-size: 18px;"><br></span></p><p><span style="font-size: 18px;">{{ case.content3|safe }}</span></p>
+				<p><br></p>
+				{% if case.img3 %}
+				<p style="text-align: center;"></p><p><img src="{{ MEDIA_URL }}{{ case.img3 }}" style="max-width:100%;"><br></p><p><br></p><p></p>
+				{% endif %}
+				<p></p><p><span style="font-size: 18px;"><br></span></p><p><span style="font-size: 18px;">{{ case.content4|safe }}</span></p>
+				<p><br></p>
+				{% if case.img4 %}
+				<p style="text-align: center;"></p><p><img src="{{ MEDIA_URL }}{{ case.img4 }}" style="max-width:100%;"><br></p><p><br></p><p></p>
+				{% endif %}
+				<p></p><p><span style="font-size: 18px;"><br></span></p><p><span style="font-size: 18px;">{{ case.content5|safe }}</span></p>
+				<p><br></p>
+				{% if case.img5 %}
+				<p style="text-align: center;"></p><p><img src="{{ MEDIA_URL }}{{ case.img5 }}" style="max-width:100%;"><br></p><p><br></p><p></p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>	
+{% endblock %}

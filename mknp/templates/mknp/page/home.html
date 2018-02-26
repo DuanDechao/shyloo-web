@@ -219,7 +219,7 @@
                                             <ul class="mobile">
                                                 {% for teamPage in teamPages %}
                                                 <li>
-                                                    <a href=""><img src="{{ MEDIA_URL }}{{ teamPage.photo }}" /></a>
+                                                    <a href="teacherinfo/{{ teamPage.name }}"><img src="{{ MEDIA_URL }}{{ teamPage.photo }}" /></a>
                                                     <dd>{{ teamPage.name }}</dd>
                                                     <p>{{ teamPage.label1 }}</p>
                                                 </li>
@@ -250,7 +250,7 @@
 
                         {% for casePage in casePages %}
                         <div class="col-sm-3 col-xs-6"> 
-                            <a href=""><img height="100" width="200" src='{{ MEDIA_URL }}{{ casePage.image }}' alt="" /></a>
+                            <a href="/mknp/case_list/{{ casePage.tag }}"><img height="100" width="200" src='{{ MEDIA_URL }}{{ casePage.image }}' alt="" /></a>
                         </div>
                         {% endfor %}
                     </div>

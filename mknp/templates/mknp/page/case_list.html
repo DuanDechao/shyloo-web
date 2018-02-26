@@ -1,0 +1,33 @@
+{% extends "mknp/base.html" %}
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/teacher/common.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/teacher/hr.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/teacher/layer1.css" type="text/css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/teacher/layer.css" id="layui_layer_skinlayercss" style="">
+{% endblock %}
+{% block body %}
+<div class="hr_detail_contain" style="background:#f6f6f6 url(../../../media/{{ pageInfo.bg_image }}) top center no-repeat;">
+    <div class="main_contain">
+        <!--hr案例部分 没有案例则不显示-->
+		<div class="hr_case">
+			<div class="hr_case_title">{{ tag }}</div>
+			<ul class="ht_case_bar">
+				{% for case in cases %}
+				<li class="reuse_case_list">
+					<img src="{{ STATIC_URL }}js/teacher/hr_case_list.jpg">
+					<div class="list_main">
+						<a target="_blank" href="{{ case.get_absolute_url }}" class="title">{{ case.title }}</a>
+						<span class="content">{{ case.content1|truncatewords:30|linebreaks }}</span>
+						<span class="time">{{ case.time|date:"Y-m-d" }}</span>
+						<span class="watch"><i></i>{{ case.view }}</span>
+						<a target="_blank" class="detail" href="{{ case.get_absolute_url }}">查看详情</a>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
