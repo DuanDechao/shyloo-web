@@ -16,7 +16,8 @@ from .models import ServiceInfo
 from .models import LanUniversity
 from .models import HighSchool
 from .models import ProUniversity
-
+from .models import TeacherInfoPage
+from .models import Case
 # Create your views here.
 
 def home_page(request):
@@ -106,13 +107,23 @@ def applyinfo(request, tagName):
 def serviceinfo(request, tagName):
 	serviceInfo = get_object_or_404(ServiceInfo, tag=tagName)
 	return render_to_response('mknp/page/items.html', {'serviceInfo':serviceInfo}, RequestContext(request))
-	
-def teacherinfo(request):
-	return render_to_response('mknp/page/teacher.html', {}, RequestContext(request))
+
+def case_list(request, tagtype):
+	pageInfo = TeacherInfoPage.objects.all()[0]
+	cases = Case.objects.filter(tag = tagtype)
+	return render(request, 'mknp/page/case_list.html', {'pageInfo':pageInfo, 'tag': tagtype, 'cases': cases}, RequestContext(request))
 	
 def case_detail(request, year, month, day, post):
-	case = get_object_or_404(Case, slug = post,
-									time__year = year,
+	case = get_object_or_404(Case,  time__year = year,
 									time__month = month,
-									time__day = day)
+									time__day = day,
+									slug = post)
 	return render(request, 'mknp/page/case.html', {'case':case}, RequestContext(request))
+
+def teacherinfo(request, tagName):
+	pageInfo = TeacherInfoPage.objects.all()[0]
+	teacherInfo = get_object_or_404(TeamPage, name=tagName)
+	tags = teacherInfo.labels.split(',')
+	cases = Case.objects.filter(teacher=tagName)
+	return render_to_response('mknp/page/teacher.html', {'teacherInfo':teacherInfo, 'pageInfo':pageInfo, 'tags': tags, 'cases':cases}, RequestContext(request))
+

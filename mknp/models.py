@@ -37,11 +37,35 @@ class ActivityPage(models.Model):
 
 class TeamPage(models.Model):
 	name = models.CharField(max_length = 250)
+	title = models.CharField(max_length = 250,default='')
+	position = models.CharField(max_length = 250,default='')
+	labels = models.CharField(max_length = 600,default='')
 	label1 = models.CharField(max_length = 250)
 	label2 = models.CharField(max_length = 250)
 	label3 = models.CharField(max_length = 250)
 	label4 = models.CharField(max_length = 250)
 	photo = models.ImageField(upload_to = 'images')
+	desc = models.TextField(default='')
+	tag1 = models.CharField(max_length = 250,default='')
+	tag2 = models.CharField(max_length = 250,default='')
+	contact = models.CharField(max_length = 250, default='')
+	#weixin = models.ImageField(upload_to = 'images')
+	sendword = models.TextField(default='')
+	skill1Label = models.CharField(max_length = 250,default='')
+	skill1Desc = models.TextField(default='')
+	skill2Label = models.CharField(max_length = 250,default='')
+	skill2Desc = models.TextField(default='')
+	skill3Label = models.CharField(max_length = 250,default='')
+	skill3Desc = models.TextField(default='')
+	skill4Label = models.CharField(max_length = 250,default='')
+	skill4Desc = models.TextField(default='')
+	skill5Label = models.CharField(max_length = 250,default='')
+	skill5Desc = models.TextField(default='')
+	
+	def get_absolute_url(self):
+		return reverse('mknp:teacherinfo',
+                        args=[self.name
+                       ])
 	
 	def __str__(self):
 		return self.name
@@ -293,6 +317,18 @@ class ServiceInfo(models.Model):
 	
 	def __str__(self):
 		return self.tag
+		
+		
+class TeacherInfoPage(models.Model):
+	descLabel = models.CharField(max_length = 500)
+	bg_image = models.ImageField(upload_to = 'images')
+	tag1 = models.CharField(max_length = 500)
+	tag2 = models.CharField(max_length = 500)
+	tag3 = models.CharField(max_length = 500)
+	skillLabel = models.CharField(max_length = 500)
+	caseLabel = models.CharField(max_length = 500)
+
+
 
 class Case(models.Model):
 	title = models.CharField(max_length = 200)
@@ -310,6 +346,7 @@ class Case(models.Model):
 	time = models.DateTimeField(default = timezone.now)
 	slug = models.SlugField(max_length=250, unique_for_date='time')
 	teacher = models.CharField(max_length = 150)
+	tag = models.CharField(max_length = 150, default ="")
 	
 	class Meta:
 		ordering = ('-time',)
@@ -318,8 +355,8 @@ class Case(models.Model):
 		return self.title
 		
 	def get_absolute_url(self):
-		return reverse('mknp:case',
+		return reverse('mknp:case_detail',
 						args = [self.time.year,
 								self.time.strftime('%m'),
 								self.time.strftime('%d'),
-								self.time.slug])
+								self.slug])

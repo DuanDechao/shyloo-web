@@ -15,6 +15,7 @@ from .models import LanUniversity
 from .models import HighSchool
 from .models import ProUniversity
 from .models import Case
+from .models import TeacherInfoPage
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -26,7 +27,7 @@ class ActivityPageAdmin(admin.ModelAdmin):
 admin.site.register(ActivityPage, ActivityPageAdmin)
 
 class TeamPageAdmin(admin.ModelAdmin):
-	list_display = ('name', 'label1', 'label2', 'label3', 'label4', 'photo')
+	list_display = ('name', 'title', 'position', 'labels', 'label1', 'label2', 'label3', 'label4', 'photo',)
 admin.site.register(TeamPage, TeamPageAdmin)
 
 class CasePageAdmin(admin.ModelAdmin):
@@ -78,5 +79,10 @@ class ProUniversityAdmin(admin.ModelAdmin):
 admin.site.register(ProUniversity, ProUniversityAdmin)
 
 class CaseAdmin(admin.ModelAdmin):
-	list_display = ('title', 'slug', 'teacher', 'time')
+	list_display = ('title', 'slug', 'teacher', 'time', 'tag')
 admin.site.register(Case, CaseAdmin)
+
+class TeacherInfoPageAdmin(admin.ModelAdmin):
+	list_display = ('descLabel', 'bg_image', 'tag1', 'tag2', 'tag3', 'skillLabel', 'caseLabel')
+admin.site.register(TeacherInfoPage, TeacherInfoPageAdmin)
+
