@@ -130,10 +130,17 @@ def teacherinfo(request, tagName):
 	return render_to_response('mknp/page/teacher.html', {'teacherInfo':teacherInfo, 'pageInfo':pageInfo, 'tags': tags, 'cases':cases}, RequestContext(request))
 
 def offerlist(request, titleInfo):
+	Pages1Info = PagesInfo.objects.filter(pageIdx='page1')[0]  
+	Pages2Info = PagesInfo.objects.filter(pageIdx='page2')[0] 
+	Pages3Info = PagesInfo.objects.filter(pageIdx='page3')[0] 
+	Pages4Info = PagesInfo.objects.filter(pageIdx='page4')[0] 
+	Pages5Info = PagesInfo.objects.filter(pageIdx='page5')[0] 
+	Pages6Info = PagesInfo.objects.filter(pageIdx='page6')[0]
 	pageInfo = HomePage.objects.filter(title = titleInfo)[0]
 	offers = Offer.objects.all()
 	offerTypes = {}
 	for offer in offers:
 		offerTypes[offer.label] = offer.labelName
 		
-	return render_to_response('mknp/page/offer.html', {'pageInfo':pageInfo, 'offerTypes':offerTypes, 'offers': offers}, RequestContext(request))
+	return render_to_response('mknp/page/offer.html', {'pageInfo':pageInfo, 'offerTypes':offerTypes, 'offers': offers,'Pages1Infos': Pages1Infos, 'Pages1Info': Pages1Info, 'Pages2Info': Pages2Info,
+		'Pages3Info': Pages3Info, 'Pages4Info': Pages4Info, 'Pages5Info': Pages5Info, 'Pages6Info': Pages6Info}, RequestContext(request))
