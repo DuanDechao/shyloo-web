@@ -31,6 +31,53 @@
 {% endblock %}
 
 {% block body %}
+	<header id="main_menu" class="header menu-static navbar-fixed-top">            
+        <div class="main_menu_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#home">
+                                        <img height="50" width="100" src='{{ STATIC_URL }}images/logo.png'/>
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#home">{{ Pages1Info.tag }}</a></li>
+                                        <li><a href="#fh5co-work">{{ Pages2Info.tag }}</a></li>
+                                        <li><a href="#team">{{ Pages3Info.tag }}</a></li>
+                                        <li><a href="#clogo">{{ Pages4Info.tag }}</a></li>
+                                        <li><a href="#portfolio">{{ Pages5Info.tag }}</a></li>
+                                        <li><a href="#news">{{ Pages6Info.tag }}</a></li>
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+                        </nav>
+                    </div>  
+                </div>
+
+            </div>
+
+        </div>
+	</header> <!--End of header -->
     <div class="culmn">
         <!--home Section -->
 		<section id="portfolio" class="portfolio sections">
@@ -77,4 +124,5 @@
                 </div>
             </div><!-- End off container --> 
         </section> <!-- End off Work Section -->
+	</div>
 {% endblock %}
