@@ -111,7 +111,7 @@ def serviceinfo(request, tagName):
 def case_list(request, tagtype):
 	pageInfo = TeacherInfoPage.objects.all()[0]
 	cases = Case.objects.filter(tag = tagtype)
-	caseinfo = CasePage.objects.filter(tag = tagType)
+	caseinfo = CasePage.objects.filter(tag = tagtype)
 	return render(request, 'mknp/page/case_list.html', {'pageInfo':pageInfo, 'caseinfo': caseinfo, 'cases': cases}, RequestContext(request))
 	
 def case_detail(request, year, month, day, post):
