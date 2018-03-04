@@ -16,6 +16,7 @@ class HomePage(models.Model):
 	URL_CHOICES = (
 		('applyinfo', 'applyinfo'),
 		('serviceinfo', 'serviceinfo'),
+		('offer', 'offer'),
 	)
 	title = models.CharField(max_length = 250)
 	desc = models.CharField(max_length = 250)
