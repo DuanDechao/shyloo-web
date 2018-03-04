@@ -73,6 +73,7 @@ class TeamPage(models.Model):
 class CasePage(models.Model):
 	image = models.ImageField(upload_to = 'images')
 	tag = models.CharField(max_length = 150)
+	desc = models.TextField(default='')
 	
 	def __str__(self):
 		return self.tag
