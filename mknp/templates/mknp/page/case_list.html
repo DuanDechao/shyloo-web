@@ -10,8 +10,14 @@
 <div class="hr_detail_contain" style="background:#f6f6f6 url(../../../media/{{ pageInfo.bg_image }}) top center no-repeat;">
     <div class="main_contain">
         <!--hr案例部分 没有案例则不显示-->
+		<div class="hr_service">
+		<span class="hr_service_title">{{ caseinfo.tag }}</span>
+		<p>
+		  {{ caseinfo.desc }}
+		</p>
+		</div>
 		<div class="hr_case">
-			<div class="hr_case_title">{{ tag }}</div>
+			<div class="hr_case_title">详细案例</div>
 			<ul class="ht_case_bar">
 				{% for case in cases %}
 				<li class="reuse_case_list">

@@ -190,7 +190,7 @@
 					<img src="{{ STATIC_URL }}js/teacher/hr_case_list.jpg">
 					<div class="list_main">
 						<a target="_blank" href="{{ case.get_absolute_url }}" class="title">{{ case.title }}</a>
-						<span class="content">{{ case.content1|slice:"30"|linebreaks}}</span>
+						<span class="content">{{ case.content1|slice:"150"|linebreaks}}</span>
 						<span class="time">{{ case.time|date:"Y-m-d" }}</span>
 						<span class="watch"><i></i>{{ case.view }}</span>
 						<a target="_blank" class="detail" href="{{ case.get_absolute_url }}">查看详情</a>
