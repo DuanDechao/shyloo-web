@@ -16,6 +16,7 @@ from .models import HighSchool
 from .models import ProUniversity
 from .models import Case
 from .models import TeacherInfoPage
+from .models import Offer
 # Register your models here.
 
 class HomePageAdmin(admin.ModelAdmin):
@@ -86,3 +87,6 @@ class TeacherInfoPageAdmin(admin.ModelAdmin):
 	list_display = ('descLabel', 'bg_image', 'tag1', 'tag2', 'tag3', 'skillLabel', 'caseLabel')
 admin.site.register(TeacherInfoPage, TeacherInfoPageAdmin)
 
+class OfferAdmin(admin.ModelAdmin):
+	list_display = ('label', 'labelName', 'image', 'title')
+admin.site.register(Offer, OfferAdmin)
