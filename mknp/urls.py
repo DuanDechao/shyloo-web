@@ -17,5 +17,5 @@ urlpatterns = [
 	url(r'^teacher/$',views.teacherinfo,name='teacherinfo'),
 	url(r'^teacherinfo/(?P<tagName>[-\w]+)/$',views.teacherinfo,name='teacherinfo'),
 	url(r'^case_list/(?P<tagtype>[-\w]+)/$',views.case_list,name='case_list'),
-	url(r'^offerlist/(?P<titleInfo>[-\w]+)/$',views.offerlist,name='offerlist'),
+	url(r'^offer/(?P<titleInfo>[-\w]+)/$',views.offerlist,name='offerlist'),
 ]
