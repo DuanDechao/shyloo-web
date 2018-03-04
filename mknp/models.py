@@ -361,3 +361,14 @@ class Case(models.Model):
 								self.time.strftime('%m'),
 								self.time.strftime('%d'),
 								self.slug])
+								
+								
+class Offer(models.Model):
+	label = models.CharField(max_length = 250)
+	labelName = models.CharField(max_length = 250)
+	image = models.FileField(upload_to = 'files')
+	title = models.CharField(max_length = 250)
+	desc  = models.TextField()
+
+	def __str__(self):
+		return self.title

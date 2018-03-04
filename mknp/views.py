@@ -18,6 +18,7 @@ from .models import HighSchool
 from .models import ProUniversity
 from .models import TeacherInfoPage
 from .models import Case
+from .models import Offer
 # Create your views here.
 
 def home_page(request):
@@ -128,3 +129,11 @@ def teacherinfo(request, tagName):
 	cases = Case.objects.filter(teacher=tagName)
 	return render_to_response('mknp/page/teacher.html', {'teacherInfo':teacherInfo, 'pageInfo':pageInfo, 'tags': tags, 'cases':cases}, RequestContext(request))
 
+def offerlist(request, titleInfo):
+	pageInfo = HomePage.objects.filter(title = titleInfo)[0]
+	offers = Offer.objects.all()
+	offerTypes = {}
+	for offer in offers:
+		offerTypes[offer.label] = offer.labelName
+		
+	return render_to_response('mknp/page/offer.html', {'pageInfo':pageInfo, 'offerTypes':offerTypes, 'offers': offers}, RequestContext(request))

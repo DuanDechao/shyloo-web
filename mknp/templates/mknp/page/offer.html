@@ -1,0 +1,82 @@
+{% extends "mknp/common.html" %}
+
+{% block title %}日本名校{% endblock %}
+{% block head %}
+<!--Google Fonts link-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/iconfont.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/slick/slick-theme.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/font-awesome.min.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/jquery.fancybox.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/bootstrap.min.css'>
+<link rel="stylesheet" href='{{ STATIC_URL }}css/magnific-popup.css'>
+<!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+<!--For Plugins external css-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/plugins.css'>
+
+<!--Theme Responsive css-->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/responsive.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/gonex-icons.css' >
+
+<!--Theme custom css -->
+<link rel="stylesheet" href='{{ STATIC_URL }}css/style.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/team.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/services.css' >
+<link rel="stylesheet" href='{{ STATIC_URL }}css/project.css' >
+
+<script src='{{ STATIC_URL }}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'></script>
+<script src='{{ STATIC_URL }}js/jQuery.js'></script>
+{% endblock %}
+
+{% block body %}
+    
+    <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+    <div class="culmn">
+        <!--home Section -->
+		<section id="portfolio" class="portfolio sections">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="main_portfolio">
+                        <div class="col-sm-12">
+                            <div class="head_title text-center">
+                                <h2>{{ pageInfo.title }}</h2>
+                                <div class="subtitle">
+                                    {{ pageInfo.desc }}
+                                </div>
+                                <div class="separator"></div>
+                            </div>
+                        </div>
+                        <div class="work_menu text-center">
+                            <div id="filters" class="toolbar mb2 mt2">
+                                <button class="btn-md fil-cat filter active" data-filter="all">所有</button>
+                                {% for key,value in offerTypes.items %}
+                                /<button class="btn-md fil-cat filter" data-rel="{{ key }}" data-filter=".{{ key }}">{{ value }}</button>
+                                {% endfor %}
+                            </div> 
+
+                        </div>
+
+                        <div style="clear:both;"></div>     
+                        <div id="portfoliowork">
+                            {% for offer in offers %}
+                            <div class="single_portfolio tile scale-anm {{ offer.label }}">
+                                <img src="{{ MEDIA_URL }}{{ offer.image }}" alt="" />
+                                <a href="{{ MEDIA_URL }}{{ offer.image }}" class="portfolio-img">
+                                    <div class="grid_item_overlay">
+                                        <h4>{{ offer.title }}</h4>
+										<!--<div class="separator4"></div>-->
+                                        <p>{{ offer.desc }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div style="clear:both;"></div>  
+                    </div>
+                </div>
+            </div><!-- End off container --> 
+        </section> <!-- End off Work Section -->
+{% endblock %}
