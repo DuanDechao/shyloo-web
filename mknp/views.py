@@ -142,5 +142,5 @@ def offerlist(request, titleInfo):
 	for offer in offers:
 		offerTypes[offer.label] = offer.labelName
 		
-	return render_to_response('mknp/page/offer.html', {'pageInfo':pageInfo, 'offerTypes':offerTypes, 'offers': offers,'Pages1Infos': Pages1Infos, 'Pages1Info': Pages1Info, 'Pages2Info': Pages2Info,
+	return render_to_response('mknp/page/offer.html', {'pageInfo':pageInfo, 'offerTypes':offerTypes, 'offers': offers,'Pages1Info': Pages1Info, 'Pages2Info': Pages2Info,
 		'Pages3Info': Pages3Info, 'Pages4Info': Pages4Info, 'Pages5Info': Pages5Info, 'Pages6Info': Pages6Info}, RequestContext(request))
